@@ -1,268 +1,428 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link href="/favicon.ico" rel="icon shortcut" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Sora:wght@300;400;600;700&family=Playfair+Display:ital,wght@1,700&display=swap"
-      rel="stylesheet"
-    />
-    <title>Abarie.com – Nigeria's Rib-Cracker</title>
-    <meta name="description" content="Enter Generated Project" />
-    <meta name="author" content="Enter" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Abarie.com – Nigeria's Rib-Cracker</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Sora:wght@300;400;600;700&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --black:    #0a0a0a;
+      --deepGray: #141414;
+      --card:     #1a1a1a;
+      --gold:     #e8b84b;
+      --goldDim:  #b8892a;
+      --cream:    #f5f0e6;
+      --white:    #ffffff;
+      --text:     #c8c0b0;
+      --accent:   #e84b4b;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--text); font-family: 'Sora', sans-serif; font-size: 16px; line-height: 1.6; overflow-x: hidden; }
 
-    <meta property="og:title" content="Enter - chat to build websites & apps" />
-    <meta
-      property="og:description"
-      content="Go from your creative idea to launch your Apps in minutes by Chat and Enter."
-    />
-    <meta
-      property="og:image"
-      content="https://jtrrmltzqcfjkvribmwe.supabase.co/storage/v1/object/public/enter/enter-og-image-square-1.jpeg"
-    />
-    <script type="module" crossorigin src="/assets/index-CHfMSlxr.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-CWgQbFQ6.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900;950&family=Poppins:wght@100;200;300;400;500;600;700;800;900;950&family=Roboto:wght@100;200;300;400;500;600;700;800;900;950&display=swap"
-      rel="stylesheet"
-    />
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 18px 6vw; background: rgba(10,10,10,0.85); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(232,184,75,0.12); }
+    .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: var(--gold); letter-spacing: 2px; text-decoration: none; }
+    .nav-logo span { color: var(--white); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: var(--text); text-decoration: none; font-size: 0.85rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; transition: color .2s; }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-book { background: var(--gold); color: var(--black); padding: 10px 22px; border-radius: 3px; font-size: 0.8rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; transition: background .2s; }
+    .nav-book:hover { background: var(--goldDim); }
 
-    <script>
-      (function () {
-        window.__earlyErrors__ = [];
-        window.__earlyConsoleLogs__ = [];
+    /* HERO */
+    .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding: 120px 6vw 80px; gap: 60px; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: -10%; right: 30%; width: 2px; height: 130%; background: linear-gradient(to bottom, transparent, var(--gold), transparent); opacity: 0.18; transform: rotate(-8deg); transform-origin: top; }
+    .hero-tag { font-size: 0.75rem; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 1rem; display: flex; align-items: center; gap: 10px; }
+    .hero-tag::before { content: ''; display: inline-block; width: 30px; height: 2px; background: var(--gold); }
+    .hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(4rem, 8vw, 8rem); line-height: 0.9; color: var(--white); letter-spacing: 2px; margin-bottom: 1.2rem; }
+    .hero h1 em { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 0.55em; display: block; letter-spacing: 4px; }
+    .hero-desc { font-size: 1rem; color: var(--text); max-width: 420px; margin-bottom: 2.5rem; line-height: 1.8; }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary { background: var(--gold); color: var(--black); padding: 14px 32px; border-radius: 3px; font-weight: 700; font-size: 0.85rem; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none; transition: transform .15s, background .2s; }
+    .btn-primary:hover { background: var(--goldDim); transform: translateY(-2px); }
+    .btn-outline { border: 1.5px solid rgba(232,184,75,0.4); color: var(--gold); padding: 14px 32px; border-radius: 3px; font-weight: 600; font-size: 0.85rem; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none; transition: border-color .2s, background .2s; }
+    .btn-outline:hover { border-color: var(--gold); background: rgba(232,184,75,0.06); }
+    .hero-img-wrap { position: relative; display: flex; justify-content: center; }
+    .hero-img-frame { width: 100%; max-width: 440px; aspect-ratio: 3/4; background: var(--card); border-radius: 6px; overflow: hidden; position: relative; border: 1px solid rgba(232,184,75,0.15); }
+    .hero-img-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; color: rgba(232,184,75,0.3); font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 3px; }
+    .hero-img-placeholder svg { opacity: 0.25; }
+    .stat-chip { position: absolute; background: var(--gold); color: var(--black); border-radius: 4px; padding: 10px 16px; font-weight: 700; font-size: 0.78rem; line-height: 1.3; box-shadow: 0 8px 30px rgba(0,0,0,0.5); }
+    .stat-chip span { display: block; font-size: 1.4rem; font-family: 'Bebas Neue', sans-serif; letter-spacing: 1px; }
+    .stat-chip.left { left: -30px; top: 25%; }
+    .stat-chip.bottom { right: -20px; bottom: 20%; }
 
-        const earlyErrorHandler = function (event) {
-          window.__earlyErrors__.push({
-            type: "error",
-            message: event.message,
-            filename: event.filename,
-            lineno: event.lineno,
-            colno: event.colno,
-            error: event.error
-              ? {
-                  name: event.error.name,
-                  message: event.error.message,
-                  stack: event.error.stack,
-                }
-              : null,
-            timestamp: Date.now(),
-          });
-        };
-        window.addEventListener("error", earlyErrorHandler, true);
+    /* SOCIAL STRIP */
+    .social-strip { background: var(--deepGray); border-top: 1px solid rgba(232,184,75,0.08); border-bottom: 1px solid rgba(232,184,75,0.08); padding: 24px 6vw; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+    .social-strip p { font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; color: var(--goldDim); font-weight: 700; white-space: nowrap; }
+    .social-icons { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+    .social-link { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 0.82rem; font-weight: 600; padding: 8px 16px; border: 1px solid rgba(255,255,255,0.08); border-radius: 3px; transition: border-color .2s, color .2s; }
+    .social-link:hover { border-color: var(--gold); color: var(--gold); }
 
-        const earlyRejectionHandler = function (event) {
-          const reason = event.reason;
-          window.__earlyErrors__.push({
-            type: "unhandledrejection",
-            reason:
-              reason instanceof Error
-                ? {
-                    name: reason.name,
-                    message: reason.message,
-                    stack: reason.stack,
-                  }
-                : String(reason),
-            timestamp: Date.now(),
-          });
-        };
-        window.addEventListener("unhandledrejection", earlyRejectionHandler, true);
+    /* SECTIONS */
+    section { padding: 100px 6vw; }
+    .section-tag { font-size: 0.7rem; letter-spacing: 5px; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 10px; }
+    .section-tag::before { content: ''; display: inline-block; width: 24px; height: 1.5px; background: var(--gold); }
+    .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.4rem, 5vw, 4rem); color: var(--white); letter-spacing: 2px; line-height: 1; margin-bottom: 1.2rem; }
+    .section-body { color: var(--text); max-width: 600px; line-height: 1.85; margin-bottom: 2.5rem; }
 
-        const originalConsoleError = console.error;
-        const originalConsoleWarn = console.warn;
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: center; }
+    .about-facts { margin-top: 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+    .fact-card { background: var(--card); border: 1px solid rgba(232,184,75,0.1); border-radius: 4px; padding: 20px; }
+    .fact-card strong { display: block; font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: var(--gold); letter-spacing: 1px; line-height: 1; margin-bottom: 4px; }
+    .fact-card small { font-size: 0.75rem; letter-spacing: 1px; color: rgba(200,192,176,0.7); text-transform: uppercase; }
+    .quote-block { border-left: 3px solid var(--gold); padding-left: 24px; margin-top: 2rem; }
+    .quote-block p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.1rem; color: var(--cream); line-height: 1.8; }
+    .quote-block cite { display: block; margin-top: 8px; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); font-style: normal; }
+    .about-image { width: 100%; aspect-ratio: 4/5; background: var(--card); border-radius: 6px; position: relative; overflow: hidden; border: 1px solid rgba(232,184,75,0.12); display: flex; align-items: center; justify-content: center; }
+    .about-image-placeholder { text-align: center; color: rgba(232,184,75,0.25); font-family: 'Bebas Neue', sans-serif; letter-spacing: 3px; font-size: 0.9rem; }
+    .about-image::before, .about-image::after { content: ''; position: absolute; width: 28px; height: 28px; border-color: var(--gold); border-style: solid; opacity: 0.5; }
+    .about-image::before { top: 16px; left: 16px; border-width: 2px 0 0 2px; }
+    .about-image::after { bottom: 16px; right: 16px; border-width: 0 2px 2px 0; }
 
-        console.error = function (...args) {
-          originalConsoleError.apply(console, args);
+    /* SHOWS */
+    .shows-bg { background: var(--deepGray); }
+    .shows-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 3rem; flex-wrap: wrap; gap: 1rem; }
+    .shows-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
+    .show-card { background: var(--card); border: 1px solid rgba(232,184,75,0.1); border-radius: 6px; overflow: hidden; transition: border-color .25s, transform .2s; }
+    .show-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+    .show-card-thumb { height: 180px; background: linear-gradient(135deg, #1a1a1a 0%, #242424 100%); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+    .show-card-thumb .show-label { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: rgba(232,184,75,0.15); letter-spacing: 4px; }
+    .show-badge { position: absolute; top: 14px; right: 14px; color: white; font-size: 0.65rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 4px 10px; border-radius: 2px; }
+    .show-badge.past { background: rgba(255,255,255,0.1); }
+    .show-badge.upcoming { background: var(--gold); color: var(--black); }
+    .show-card-body { padding: 22px; }
+    .show-card-date { font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+    .show-card-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; color: var(--white); letter-spacing: 1px; margin-bottom: 6px; }
+    .show-card-venue { font-size: 0.82rem; color: var(--text); margin-bottom: 16px; display: flex; align-items: center; gap: 6px; }
+    .show-card-feat { font-size: 0.78rem; color: rgba(200,192,176,0.6); margin-bottom: 18px; }
+    .show-card-feat span { color: var(--text); }
+    .show-card-link { display: inline-block; font-size: 0.78rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(232,184,75,0.3); padding-bottom: 2px; transition: border-color .2s; }
+    .show-card-link:hover { border-color: var(--gold); }
 
-          window.__earlyConsoleLogs__.push({
-            type: "error",
-            args: args.map((arg) => {
-              if (arg instanceof Error) {
-                return {
-                  name: arg.name,
-                  message: arg.message,
-                  stack: arg.stack,
-                };
-              }
-              try {
-                return String(arg);
-              } catch {
-                return "[Unstringifiable]";
-              }
-            }),
-            timestamp: Date.now(),
-          });
-        };
+    /* MEDIA */
+    .media-grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 220px); gap: 12px; }
+    .media-cell { background: var(--card); border-radius: 4px; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; border: 1px solid rgba(255,255,255,0.04); transition: border-color .2s; cursor: pointer; }
+    .media-cell:hover { border-color: rgba(232,184,75,0.3); }
+    .media-cell.wide { grid-column: span 2; }
+    .media-cell-label { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 3px; color: rgba(232,184,75,0.2); text-align: center; padding: 16px; }
+    .play-btn { position: absolute; width: 52px; height: 52px; background: rgba(232,184,75,0.15); border: 1.5px solid rgba(232,184,75,0.4); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gold); transition: background .2s; }
+    .media-cell:hover .play-btn { background: rgba(232,184,75,0.3); }
 
-        console.warn = function (...args) {
-          originalConsoleWarn.apply(console, args);
+    /* CONNECT */
+    .connect-bg { background: var(--deepGray); }
+    .connect-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
+    .platform-card { background: var(--card); border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; padding: 28px 24px; text-align: center; transition: border-color .25s, transform .2s; text-decoration: none; display: block; }
+    .platform-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+    .platform-icon { width: 52px; height: 52px; border-radius: 12px; margin: 0 auto 16px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; }
+    .platform-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; color: var(--white); letter-spacing: 2px; margin-bottom: 4px; }
+    .platform-handle { font-size: 0.78rem; color: var(--gold); margin-bottom: 10px; }
+    .platform-stat { font-size: 0.72rem; color: rgba(200,192,176,0.5); }
 
-          window.__earlyConsoleLogs__.push({
-            type: "warn",
-            args: args.map((arg) => {
-              try {
-                return String(arg);
-              } catch {
-                return "[Unstringifiable]";
-              }
-            }),
-            timestamp: Date.now(),
-          });
-        };
+    /* BOOKING */
+    .booking-wrap { max-width: 760px; margin: 0 auto; text-align: center; }
+    .booking-wrap .section-tag { justify-content: center; }
+    .booking-wrap .section-body { margin: 0 auto 2.5rem; text-align: center; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 2.5rem; text-align: left; }
+    .contact-item { background: var(--card); border: 1px solid rgba(232,184,75,0.1); border-radius: 4px; padding: 20px 24px; display: flex; align-items: center; gap: 16px; }
+    .contact-icon { width: 42px; height: 42px; background: rgba(232,184,75,0.1); border-radius: 4px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--gold); }
+    .contact-item strong { display: block; font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; color: rgba(200,192,176,0.5); margin-bottom: 3px; }
+    .contact-item a, .contact-item span { font-size: 0.9rem; color: var(--white); text-decoration: none; }
+    .contact-item a:hover { color: var(--gold); }
 
-        window.__cleanupEarlyErrorHandlers__ = function () {
-          window.removeEventListener("error", earlyErrorHandler, true);
-          window.removeEventListener("unhandledrejection", earlyRejectionHandler, true);
+    /* FOOTER */
+    footer { background: #060606; border-top: 1px solid rgba(232,184,75,0.1); padding: 48px 6vw; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
+    .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; color: var(--gold); letter-spacing: 2px; }
+    .footer-logo span { color: rgba(255,255,255,0.4); }
+    footer p { font-size: 0.78rem; color: rgba(200,192,176,0.35); }
+    .footer-social { display: flex; gap: 1rem; }
+    .footer-social a { width: 38px; height: 38px; border: 1px solid rgba(255,255,255,0.08); border-radius: 4px; display: flex; align-items: center; justify-content: center; color: var(--text); text-decoration: none; font-size: 0.85rem; transition: border-color .2s, color .2s; }
+    .footer-social a:hover { border-color: var(--gold); color: var(--gold); }
 
-          console.error = originalConsoleError;
-          console.warn = originalConsoleWarn;
+    /* DEMO BANNER */
+    .demo-banner { background: rgba(232,184,75,0.08); border: 1px dashed rgba(232,184,75,0.35); text-align: center; padding: 14px 24px; font-size: 0.78rem; color: var(--gold); letter-spacing: 1px; }
 
-          delete window.__cleanupEarlyErrorHandlers__;
-        };
-      })();
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; padding-top: 100px; }
+      .hero-img-wrap { display: none; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-image { max-height: 300px; }
+      .media-grid { grid-template-columns: 1fr 1fr; }
+      .media-cell.wide { grid-column: span 1; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+    @media (max-width: 600px) {
+      section { padding: 70px 5vw; }
+      .about-facts { grid-template-columns: 1fr 1fr; }
+      .media-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+    }
+  </style>
+</head>
+<body>
 
-      window.addEventListener("message", (event) => {
-        if (event.data.type === "inject-script") {
-          try {
-            console.log("Executing injector script in sandbox...");
+  <div class="demo-banner">
+    ⚡ DEMO WEBSITE — Built to showcase Abarie.com's digital potential. All social links are live and accurate.
+  </div>
 
-            const script = document.createElement("script");
-            script.textContent = event.data.script;
-            document.head.appendChild(script);
-            console.log("Injector script executed successfully");
-          } catch (error) {
-            console.error("Failed to execute injector script:", error);
-          }
-        }
-      });
-    </script>
-    <style>
-      #enter-badge {
-        z-index: 10000000000;
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        display: inline-flex;
-        align-items: center;
-        box-sizing: border-box;
+  <nav>
+    <a href="#top" class="nav-logo">ABARIE<span>.COM</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#shows">Shows</a></li>
+      <li><a href="#media">Media</a></li>
+      <li><a href="#connect">Connect</a></li>
+      <li><a href="#booking">Booking</a></li>
+    </ul>
+    <a href="#booking" class="nav-book">Book Abarie</a>
+  </nav>
 
-        .build-with-container {
-          display: inline-flex;
-          padding: 8px 8px 8px 12px;
-          align-items: center;
-          gap: 18px;
-          border-radius: 8px;
-          border: 1px solid #1f1f1f;
-          background: #131313;
-          box-shadow:
-            0 4px 6px -1px rgba(0, 0, 0, 0.1),
-            0 2px 4px -2px rgba(0, 0, 0, 0.1);
-        }
-
-        .content-wrapper {
-          display: inline-flex;
-          align-items: center;
-          gap: 8px;
-        }
-
-        .build-with {
-          color: rgba(255, 255, 255, 0.7);
-          font-family: Roboto;
-          font-size: 15px;
-          font-style: normal;
-          font-weight: 400;
-          line-height: normal;
-        }
-
-        .favicon {
-          width: 18px;
-          height: 18px;
-          border-radius: 3.111px;
-        }
-
-        .title {
-          color: #fff;
-          font-family: "Ubuntu Sans";
-          font-size: 15px;
-          font-style: normal;
-          font-weight: 500;
-          line-height: normal;
-          letter-spacing: 0.15px;
-        }
-
-        .close-button {
-          width: 16px;
-          height: 16px;
-          flex-shrink: 0;
-          aspect-ratio: 1/1;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-      }
-    </style>
-  </head>
-
-  <body>
-    <div id="root"></div>
-    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
-    <a id="enter-badge" target="_blank" href="https://enter.converge.ai">
-      <div class="build-with-container">
-        <div class="content-wrapper">
-          <span class="build-with">Build with</span>
-          <img
-            class="favicon"
-            src="
-data:image/vnd.microsoft.icon;base64,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/P+IYfz/h2D8/4Vf/P+EXv3+gV38/4Fc/f6AW/z+fVv8/nta/P55Wfz+d1f7/3ZX+/90Vvz+clX8/nFV+/emb//+o27+/6Jt//6gbP/+nmv//pxq/f+aaf3/mGn9/5do/f+WZ/7+lGb+/pJl/v6PZP3/jWP8/4xj/P+KYvz/iWD9/oZg/P+FX/z/g178/4Jd/P6BXPz+flz9/n1a+/97Wfz+eVn7/3dY+/92V/z+dFb7/nJV+v9wVPv+b1P7+KNu/v+hbf7/oGz//p5r/v+dav7+mmn9/5hp/f+WaP3/lWf9/5Rm/v6RZf3/s5b9/8q2/f/Hs/3/jWb8/4hg/P+GYPz/hV/8/4Ne/P+Ma/z/p4/8/4Jf/P58Wvv/e1r7/3lY+/93WPv/dVf8/nRW+/5yVfr/cFT7/m5T+v9tUvr4om3//p9s/v+ea/7+nGr9/5pp/f+Yaf3/lmf9/5Rn/f+TZv3/kWX9/5Bk/v61mf7+//////////+pjP3/hmD8/4Vf/f6DXvz/gV38/7Oe/f//////7Of+/7em/f+GaPz+d1j8/nVX/P5zVvr/cVX6/3BU+v9uU/r/bFL7/mtR+vifbP7/nWv+/5xq/v+aaf3/mGj9/5Zo/f+UZ/3/k2b+/pFl/f+PZP3/jmP9/pNs/f749f///////9LD/v+EX/z/g178/4Fd/P+AXPv/vaz9//r5//////////////j2///Jvf3/kHj7/3JW+/9vVPv+blP6/2xS+/5qUfr/aVD6+J5r//6bav3/mmn+/plo/v6XZ/7+lWb+/pNm/f+SZf7+kGT9/o5j/f6MYv3+iWH8/9TG/v//////9vP//4hl/P+BXfz+gVz9/n5b/P58Wvz+h2r7/7Wk/f/o4/7//v7////////9/f//3db+/6CO+/9wV/v+alH7/mhQ+v9nT/r4m2r+/5pp/v6Zaf7+lmf9/5Vm/v6TZv7+kWX9/pBk/v6NY/3/jGL9/oph/f6IYP3+q5D+/v//////////qJD9/4Bc/P5+W/v/fFr7/3pZ+/94WPz+dlf7/3ZZ/P6WgPz/zMP9//n4/////////////6ia/f5oUPv+Zk/6/2VO+viaaf7+l2j9/5Zn/f+UZv3/k2X+/pFk/v6PZP3/jmP9/oxi/f6KYf3+iGD9/odf/f6JZfz/8/D////////UyP7/fVv8/nxa/P56Wfz+eFj8/nZX+/90Vvv/clX8/nlf+/6ol/3+6OP+////////////qJv9/mZP+/5lTvr/Y076+Jho/v6VZ/3/lGb9/5Jl/f+RZf7+j2P+/o1j/f+MYv3+imH9/odg/P+FX/z/hF78/4Jd/P/Mvv7///////j2//+FZfz+eln8/nhY+/92V/v/dlj8/pB5/P/Guv3/9PL+////////////9fT//8C2/f95Zfv+ZE76/2NN+f9hTfn4lmf+/pRm/f+SZv3/kWX+/o9k/v6MYvz/i2L8/4ph/f6IYP3+hl/9/oRe/f6DXf3+gFz8/6GH/f7//v///////6iT/P94WPz+dlf7/6KN/P/i3P7//v7////////+/v//5+P+/6qc/f5zXfr/Zk/7/mRO+v9iTfr+YUz6/mBM+fiVZv7+kWX9/5Fk/v6OY/3/jGP8/4ti/P+JYfz/h2D8/4Vf/P+EXv3+gl38/4Fc/P6AXPz+gV78/u/q/v//////187+/3ZX/P50Vvv/uKn9/v/////8+///08v9/5SC+/9sU/v+aFD6/2ZP+v9kTvr/Yk36/mBM+v5eS/r+Xkv5+JJl/v6RZP3+j2P+/o1j/f6KYvz/iGH8/4hg/f6GX/3+hF79/oJd/f6AXPz/gFz9/n1b+/97Wvz+xLX9///////6+P//gWX8/nJV+/+Hbvv+vbH9/4Js+v9sUvr/aVD7/mdQ+/5mT/v+ZE77/mJN+v5gTPr+Xkv5/11K+f9bSvr3kGT+/o5j/f6NYv3+i2H9/ohh/P+IYP3+hV/8/4Re/f6BXfz/g2D9/qOK/P/Zz/7/lXn9/nlZ/P6UfPz//v7///////+qmf3+cFT6/25T+/5tUvv+a1L7/mlR+/5nUPr/Zk/7/mRO+f9iTfn/YEz5/15L+v5dS/n/W0n5/1lJ+fiOY/3/jGL8/4pi/P+JYf3+hmD8/4Zf/f6EXv3+jGn9/rej/f/q5f7///////////+/sP3/d1j7/3dZ+//p5f7//////9rT/v9vVPv+bVL7/mtR+v9pUPr/Z1D6/2VP+/5kTvr/Yk36/mBM+f9eS/n/XEr5/1tK+v5ZSfn/V0j5+Ixi/f+KYfz/iGH8/4df/f6FX/z/mnz8/8u9/v/39f/////////////5+P//0Mb+/5Z++/91V/v/c1b8/rqt/f//////+/v//31m+v9rUfv+aVH6/2dP+/5lT/r/Y076/2JN+f9gTPn/Xkv5/1xK+f9bSfr+WUj5/1dI+v5WR/n3imH8/4lh/f6GX/z/nX/8/9/V/v/9/f////////7+///q5P7/t6X+/oZp/P53V/z+dVf8/nNW+/9yVfv+iHH7//39////////q538/2lQ+/5nT/r/ZU76/mNO+v5hTfn/YEz5/15L+f9cSvr+W0r5/1hI+v5XSPr+VUf6/lNG+PiIYPz/hmD8/4Vf/f66pv3////////////j3P7/nob9/n1c+/94WPz+d1f8/nVW/P5zVvv/clX6/3BU+/5vVPv+5N7+///////d2P7/Z1D7/mVO+v9jTvr/YU36/l9M+f9eS/r+XEr6/lpJ+v5YSPn/V0f5/1VH+f5TRvj/UUX4+IZf/P+EXvz/g179/rOe/P/+/f////////79///g2P7/q5f8/35g+/91Vvz+c1X7/3FV+v9wVPv+blP7/mxS+v+vovz///////38//96Z/v+Y077/mFN+f9fTPn/Xkv5/1xK+f9aSfn/WEj6/ldH+f9VRvn+U0X4/1FF+f5PRPj4hV79/oNd/f6AXfz/gV38/ph9/P/Nwf7/+ff/////////////9PH+/8S4/f+Ndvv/cFX7/m5T+/5sUvr/alH7/n1o+v/8/P///////6yh/P9hTfr+X0z6/l1L+f9cSvr+Wkn5/1hI+f9WR/r+VEb5/1NF+P9RRfj/T0T5/k5D+PiDXf3+gFz8/39c+/99W/v/fFr8/npZ/P6EaPv/t6f9/+zp/v////////////39//+7r/3/bFL6/2pR+v9oUPr/Z1D6/9vV/f//////4d7+/2BN+f9dSvr+XEr6/lpJ+v5YSPn/Vkf5/lRG+f5SRfn+UEX4/09E+f5NQ/j/TEL4+IBc/P+AW/z+fVv7/3ta+/96Wfv/eFj7/3ZX+/90Vvv/dlr6/56L/P/Z0v7//fz//56N+/9qUfr/aFD6/2ZP+v9kTvr/pJj7///////9/f//eWr7/ltK+f9ZSfr+WEj6/lZH+f9URvn+UkX4/1FF+P9PRPj/TUP4/0tC+P9KQvj4f1z7/31b+/98Wvz+eln8/ndY/P52V/v/dFb8/nJV+/9xVPv+b1T6/25T+/6FcPv/cFn7/mhQ+v9mT/v+ZE75/2JN+v5vXfr+uLD8/7iw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/f+KYfz/imH9/ohg/P+GYPz/hV/8/4Re/P+EXf3+g139/oJd/f6AXPz/f1z8/35b/P58Wvz+e1r7/3pZ+/95WPz+eFj7/3dX/P51Vvz+dFf786px/v+pcf7/qHD+/6Zw/v+lb/7/pG/+/6Nu/v+jbf/+oW3//qBs//6fa//+nWv+/5xq/v6bav7/m2r+/pho/f+YaP7+l2f+/pVm/v6UZv7+k2b+/pJl/v6QZP3/kGT+/o1j/f+MY/z/i2L8/4th/f6JYf3+iWD9/oZg/P+FX/z/hF78/4Je/P+BXfz/gV38/4Fc/f6AW/z+flv8/nxa+/97Wvz+eln8/nhY/P54WPz+d1j7/3VX+/90Vvv/c1b786lx/v+ocP7/pm/+/6Vv/v+lbv/+pG7//qJt/v+ibf/+oGz//p9r//6ea//+nGr+/5xp/v6aaf7+mGj9/5do/f+WZ/3/lGf9/5Nm/f+TZf7+kGX9/5Fk/f6QZP7+jWP8/41j/f6LYvz/imH8/4lh/P+IYPz/h1/9/oVf/P+FX/3+g139/oFd/P+BXfz/f1z8/35b/P5+W/z+fFr7/3ta+/96Wfz+eFj8/ndY+/93V/z+dVb7/3RW/P5zVfv/cVX786hw/v+nb//+pW/+/6Ru/v+jbv/+oW3+/6Bt/v+gbP/+nmv+/55r//6bav3/mmn9/5tp/v6ZaP7+l2j9/5Zn/f+VZv7+lGb+/pNm/f+RZf3/kGT9/49k/f+NY/3/jGP9/4ti/P+KYfz/iGH8/4dg/P+GYPz/hV/8/4Ve/f6DXv3+gl39/oFd/f6AXP3+gFv9/n5b/P58Wvv/e1n8/npZ+/94WPz+d1f7/3dX+/91V/v/dFb7/nNW+/9xVfv+cVX786dv//6mb//+pW7//qJt/v+ibf/+oWz//p9s//6fa//+nWv+/5tq/v+aaf3/mWn9/5ho/f+YaP7+l2f+/pVm/v6UZv7+k2X+/pJl/v6QZP3/j2T9/41j/f+MY/3/i2L8/4lh/P+IYfz/h2D8/4Zf/P+FX/z/hF/8/4Je/P+CXf3+gFz7/4Bc/P5+W/z+flv7/3xa+/97Wvv/eln7/3hY/P53WPz+dlf8/nVX+/90Vvv+c1X7/3FV+/5wVPv+b1T786Zv//6kbv7/om3+/6Jt//6hbf/+oGz//p5r/v+da/7/m2r9/5pp/f+Zaf3/l2j9/5do/v+XZ/7+lGb9/5Rm/v6TZf7+kGX9/49k/P+PZP7+jGP8/4xi/P+LYvz/iWH8/4lg/f6HYPz/hl/9/oVf/P+EXvz/gl38/4Jd/P6BXPz+gFv8/n9c/P99W/v/fFr7/3tZ/P56Wfv/eFj7/3dX+/92V/v/dVb7/3RW+/9yVfv+cVX6/3BU+/5vVPr/blP786Rv/v+ibf7/oW3+/6Ft//6ebP7/n2v+/p5r//6bav7/mmn9/5lp/f+ZaP7+l2j9/5Zn/f+VZv7+lGb+/pJl/f+Va/3/qon9/62O/P+sjv3/qov9/o1l/f6JYfz/iGD8/4dg/P+GX/3+hV/8/4Re/P+CXvz/iWf8/5R1/f6FY/v/flz8/n1b+/98Wvv/e1r7/3pZ/P54WPv/d1j8/nZX/P50Vvv/dFb7/3JV+v9xVfz+cFT7/m9U+v9tU/v+bVP786Jt/v+hbf7/oGz+/59s//6ea/7/nWv+/5xq//6aaf7/mWn+/5ho/v6WaP3/lWf9/5Rm/f+UZv7+kmX9/5Fk/v6Xbf7+4dX+//r5/v/6+f7/+PX+/6OD/P+IYPz/h2D8/4Zf/P+EX/z/hF78/4Jd/P+BXfz/s579/u7p/v/Kvf3/pY78/4Zn+/97Wvz+eln7/3hY+/93WPz+dlf7/3VW/P5zVvv+clX7/nFV+v9wVPv+b1P7/m1T+v9sUvv+bFL786Jt//6gbP7/nmz+/55r/v+da/7+nGr+/ppp/f+Zaf3/l2j9/5Zn/f+VZ/3/lGb9/5Nm/f+SZf3/kGT9/49k/f+PZP3+wav+/////////////////8q3/f+IYP3+hV/8/4Ze/f6EXvz/gl38/4Fd/P+EYvz/29L9///////+/f//9vT//+Lb/v+xnv3/hGb8/ndY+/92V/z+dFb8/nNW+/9yVfv+cVX6/3BU+/9vU/v+bVL7/2xS+/5rUfv+alL686Bs/v+ea/7/nWv+/5xr/v+bav3/m2n+/plp/f+XaP3/lmj9/5Vn/f+UZv3/k2b+/pJl/f+QZf3/j2T9/45k/f+MY/z/nnr9/vj2/////////////+jh/v+Rb/z/hF/8/4Ne/P+CXfz/gV38/4Bc+/+Rc/v/5t/+//z8///////////////////+/f//7er+/7io/P+Mc/v/el37/nJV+v9xVPv/b1T7/m9T+/9tUvv+bFL6/2tR+/9qUfr/aVH6855r/v+da/7/nGr9/5tq/v+Zaf3/mWn9/5ho/v6XZ/7+lmf+/pRm/f+UZv7+kmX+/pBk/f+PZP3/jmP9/41i/f6MYv3+jGP9/trO/v////////////f0//+pj/3/g178/4Nd/P6CXf3+gFz8/39b+/+CYfv/m4H8/72s/f/e1v7/+ff///////////////////39///t6f7/yr/+/6GP/P9+Zfv/b1T6/21T+v9sUvv+a1H7/mlR+v9oUPr/aFD6855r//6dav7+mmr9/5pp/v6aaf7+mGj+/pZn/f+WZ/7+lGb+/pJm/f+TZf7+kGT9/5Bk/f6PZP3+jWL9/oti/P+LYv3+iGH8/6+W/f/8/P////////39///Fs/3/hGH8/4Fd/P6BXPz+f1v8/35b/P58Wvz+e1n7/31c/P6Fafv/m4X8/83C/f/08v////7//////////////v7///f1///h2/7/r6D8/3hg+/9rUvv+aVH6/2hQ+v9nUPr/Z1D685xr/v+aaf3/mmn+/ppp/v6XaP3/l2f+/pZn/v6UZv3/k2X+/pJl/f6QZP7+j2T9/45k/f+MYv3/jGL9/oph/P+JYf3+iWD9/pd0/f7s5v7////////////g1/7/i2z8/4Bc/P+AW/z+flv7/31a+/97Wvv/eln8/3lZ+/93WPz+dlf7/3dZ+/+JcPv/u638/+Xh/v/39f///v7//////////////v7//83E/f9rU/v+aFD6/2dQ+v9mT/r/Zk/685tp/v6aaf7+mGn9/5ho/v6WZ/3/lWf9/5Rm/v6TZv7+kmX+/pBk/f6QZP3+jmP9/41i/f6MYv3+imL8/4ph/f6IYP3+h2D9/oxn/f7Rw/7//v7////////29P//nYP8/35b+/9+W/z+fVr7/3ta+/96Wfz+eVn8/ndY/P52V/v/dVf7/3NW/P5zVvz+c1b7/4Jp/P6xo/z/8e/+/////////////////9DJ/f9qUvv+Z1D7/mVP+v9kTvr/ZE/685lp/f+ZaP7+lmj9/5Zn/f+VZ/3/k2b9/5Nl/v6SZf7+kGT+/o9k/f+PY/7+jWP9/oxi/f6LYf3+iWH9/odg/P+HYP3+hV/8/4Vf/P+znP3/+fj////////+/v//xbX9/31b/P58Wvz+e1n7/3pZ/P55WPz+d1f8/nZX+/91V/v/dFb7/3NV/P5yVvv+hm78/rqt/f/m4f7/+/r//////////////////8/I/f9pUvv+ZU77/mVO+v9jTvr/Y07685lp/v6WaP3/lWf9/5Vn/f+TZv3/kmX9/5Fl/f+QZP7+j2P+/o5j/f+NY/3+jGL9/oth/f6IYPz/h2D8/4Zg/P+GX/3+hF78/4Re/f6XePz/7+n/////////////7un+/4Vl/P57Wfz+eln8/nlY+/93WPz+dlf7/3VX/P53Wvv/gGb7/5mE/f7Mwv3/9fP///////////////////39///z8v//3Nf9/5qL+/9mUPv+ZU76/2NO+f9iTfn/Yk7585do/v6VZ/3/lWf9/5Nm/f+SZv3/kWX9/5Bk/v6OZP3/jWP8/4xj/f+LYvz/i2H9/olg/f6IYP3+h2D9/oVe/f6FXv3+g178/4Fd/P+EYvz/1cn+/////////////f3//6SN/P96Wfz+eVn7/3dY+/92V/v/e177/5Z//P+6q/3/3db+//n4///+/v/////////////8/P//5+P+/8C2/f+UhPv/cVv6/2ZP+/5kTvr+Y075/2JN+v5hTPn/X03685Zn/v6VZ/3/lGb+/pNl/v6RZf3/kGT9/o5k/f+OY/3+jGL9/4ti/P+KYf3+iGD8/4hg/f6HX/3+hV/9/oRe/P+DXv3+gV38/4Fc/P6AXPz/q5P9/v7+/////////////9HF/f98XPz+d1f7/3ZX+/+Ga/v/08n+//Lv///8+////////////////////v3//+bh/v+rnPz/gGr7/m5X+v9nUPr/ZU/6/2RO+v9jTvr+YUz5/2BM+v5gTPr+Xkz585Rn/f+UZv7+kWX9/5Jl/v6PZP3/jmP9/45j/f6MYvz/i2L8/4lh/P+IYPz/h1/8/4Zf/P+EXvz/hF79/oJd/P+CXf3+gVz9/oFc/P5+W/v/hWP8/u7q/v///////////+3q/v+Ncv3+dlf7/3VW+/+AZPz+4939/////////////f3///Px///X0f7/n4/8/3BY+v9pUPr/Z1D6/2dP+v5lT/r/ZE76/2NO+v5hTPr+YEz6/l9M+v5eS/n/XUz585Rm/v6SZf7+kmX9/o9k/f+PY/3+jWP9/4ti/f+KYvz/iWH8/4lg/f6IYP3+h1/9/oVe/f6EXv3+g139/oFd/P+BXP3+gFz8/n5b+/99W/v/fFv8/sOz/f////////////n3//+rmP3+dVj8/nNW+/9zVvv+va/+/vz7///l4P7/vrL8/5WC+/91Xfv+alH6/2hQ+/5oUPv+Z0/6/2VO+v9kTvr/Y076/2FM+v5gTPr+X0z6/l5L+f9dS/n/XEv585Fl/f+RZf7+kGT9/o9j/v6NY/z/jGL9/oph/P+KYf3+iGD8/4dg/P+HX/3+hF78/4Re/f6DXf3+gV38/4Bc+/+AXP3+flz8/31b+/98Wvv/eln8/pqB/P/39f////////7+///IvP3/eV38/nJV+/9xVfr/hm77/qaW/P+Bavv+cVf6/2tS+v9qUfr/aFD6/mdP+/5mT/v+ZU76/2RO+v9jTvr+YUz6/mBM+f9fTPn/Xkv5/11K+f9bSvr+Wkv585Fk/v6QZP3+jmP9/41j/P+MYv3+i2H9/olh/P+JYP3+h2D8/4Zf/P+FX/3+hF79/oNd/P6BXf3+gV78/4lo+/+fhfz/z8L9/5mA/f56Wfz+eVn7/4Vo/P7g2P7////////////n4v7/hGr8/nFV+/9vU/v+blP7/m1T+v9sUvv+a1L6/2pR+/5oUPv+Z1D6/2ZP+/5lTvr/ZE76/mNO+f9hTfr+YE35/19M+v5dS/r+XUr5/1tK+f9aSfn/WUn585Bk/v6OY/3+jmP9/oxi/f6KYfz/iWH8/4dg/P+GYPz/h1/9/oRe/P+EXv3+g179/oJf/P+VePz/t6P+/trP/v/29P////7//8e5/f97W/v/eFj8/npc+/++sP3//fz////////6+f//n4z8/29U+v9uU/r/blP7/mxS+/5rUvv+alH6/2hQ+/5nUPv+Zk/7/mVO+v9kTvn/Yk36/mFN+f9gTPn/X0v5/11L+f9dS/n/XEr6/lpJ+f9ZSfr+WEj6845j/f+NY/z/i2L8/4ti/f6JYfz/iGD9/oZg/P+FX/z/hV79/oRe/f6EYP3+mnz9/8q7/f/t6P//+/n//////////////////+ji/v+Fafv/dlf8/nVX+/6eifz/9fP/////////////z8X9/29V+/5tU/v+bFL7/mtR+v9qUfr/aFD6/2dP+v9mT/r/ZU77/mRO+v9iTfv+YUz6/mBM+f9fTPn/XUv5/1xK+v5bSvn/Wkn6/llJ+f9YSPn/V0f5841i/f+LYvz/imH8/4lh/P+HYPz/hl/8/4df/f6GYfz/jmv9/qSJ/f/Ux/7/+ff///////////////////7+///49v//6OL+/72v/P+CZvv/dVf7/3RW+/+CZ/z+5uH+////////////9vT+/35n+/5rUfr/a1H6/2lR+v9oUPv+Z0/6/2ZP+v9lTvr/ZE76/2JN+v9hTPr+YEz5/19L+f9dSvn/XEr5/1tJ+v5aSfn/WUj5/lhI+f9WR/n+Vkf584ti/f+KYfz/imH9/odg/P+GX/z/h2L8/5t8/f+7p/3/3tX+//n3///////////////////9/P//7un//8zA/f+olPz/iGv9/ndY+/91Vvv/dFb7/3JV/P5zV/r/vbH9/////////////v7//6uc/P9rUfr/aVH7/mhQ+v9nT/r/Zk/7/mRO+v5jTvn/Yk35/2FM+f9gTPn/X0v5/11K+v5cSvn/XEr5/1pJ+v5ZSPr+WEj5/1ZH+v5VRvn+VUf584ph/P+KYf3+h2D8/4Zf/P+HYfz/wrD9//Dr///7+v///////////////////v3//+ji/v+2o/3/kHP9/n5g/P54Wfz+dlf7/3VX+/50Vvv/clX7/3FV+/5xVPv+jHf7//v5/////////////9rU/v9xWvr/aFD7/mdP+v9mT/r/ZE75/2NO+f9iTfn/YEz5/2BM+v9fS/n/XUr5/1xK+v5bSvn/Wkn5/1lI+f9XSPn+Vkf6/lVH+f9URvn+U0b584lh/P+HYPz/hl/8/4Vf/P+IY/3+29H+//////////////////n3///Yzv7/pY78/4Fh/P96Wfv/eFj7/3hY/P52V/z+dVb8/nRW+/9yVfv/clX6/3FU+/9vU/v+cVf7/9/Y/v////////////Du/v+LePz+Zk/6/2ZP+v9kTvr/Y076/2JN+v5hTPn/X0z6/l5L+f9dSvr+XEr5/1tK+v5ZSfn/WUj5/1dI+v5WR/n/VUf5/lRG+P9SRfj/UkX584dg/P+GYPz/hV/8/4Re/f6FYvz/2tD+//////////////////Ht/v+/r/3/mHz9/n5f/P54WPz+d1j8/nZX/P51Vvz+dFb8/nJV+/9xVfr/cFT6/29T+/5uU/r/bVL7/qqb/P/9/P////////v6//+toP3+aFH7/mRO+v9jTvr/Yk36/2FN+v5fS/r+Xkv5/11K+f9cSvn/W0n5/1lJ+v5YSPn/V0f5/1ZH+P9VRvn/VEb4/1JF+f5RRfj/UEX584Zf/P+FX/z/g178/4Nd/f6EYP3+yrv9//z7///////////////////7+v//8e7//9TK/f+hi/z/fF77/3VW+/90Vvv/clX7/3FV+v9wVPr/b1P7/m1T+/5tU/r/a1H6/4Ju+//u6/7////////////Nxv3/bln6/mNN+/5iTfr/YEz6/l9M+f9eS/n/XUr5/1xK+v5bSvn/WUj5/1hI+v5XSPn/Vkf5/lRG+f5URvn+UkX4/1FF+P9QRPj/T0T484Vf/P+EXv3+g139/oFd/P+AXPv/g1/8/p2D/P/Rxf7/8Oz///z7///////////////////8/P//5N7+/6+e/f6JcPv/eFz8/nBV+/5uU/v+blP6/21S+v9rUfr/alH7/nJc+/7Ox/3////////////t6/7/fWz6/2JN+v5gTPr+X0z5/15L+f9cSvr+XEr5/1tJ+f9ZSfn/WEj6/ldI+f9VR/r+VEb5/1RG+P9SRfj/UUT5/lBE+f5PQ/n+TkP484Ne/P+DXf3+gV38/4Fc/P5/XPv/flv8/31b/P6AYPv/lXv8/7mo/f/e1v7/+fj///////////////////39///r5/7/yb79/6GQ/f51W/v+bFL6/2tR+v9qUfr/aVD7/mlS+v+rnvz/+vr////////9/P//ppr8/2BM+f9fTPr+Xkv6/l1K+f9cSvn/W0n5/1lJ+f9YSPn/V0j5/1VH+f5URvn+U0b4/1JF+f5RRfn+UET4/05D+f5NQ/n+TUL484Nd/P6CXf3+gFz8/39b+/9+W/v/fVr7/3ta/P57Wvz+eVj8/npb+/+EaPv/non9/tPL/f/59////////////////////v7//+Pe/v97ZPv+a1L6/2pR+/5oUPr/Z0/6/2ZP+v6FdPv/7+3+////////////3Nj+/2JP+v9eS/r+XEr5/1xK+f9aSfr+WUj6/lhI+f9XR/n/VUf5/lVG+v5TRvn+UkX5/lBE+P9PRPn+TkP5/k1D+P9MQvn+TEL484Bd/P+BXPz+gFv8/n5b+/98Wvz+e1r7/3tZ+/95Wfv/eFj7/3dY+/91V/v/dFb7/3VY+/6Revv/yL79/+7r/v/6+v///////8rB/f9tVPr/alH6/2lQ+v9nUPr/Zk/7/mVP+v9rVvn/1c/9////////////+fn//39w+/9cSvr+W0r5/1pJ+f9YSPr+V0j6/ldH+f9VR/r+VEb5/lNG+v5SRfj/UUX5/lBE+P9OQ/n+TUP4/0xC+P9KQfj/S0L484Bc+/9/W/v/flv8/nxa/P57Wvz+eln7/3hZ/P54WPv/dlf7/3VX+/90Vvz+c1b7/3FV+/9xVfr/c1j6/4hx/P6vofz/19D9/5aE+/9qUfr/aVD7/mdQ+/5mT/v+ZU76/2NO+v9iTvr+pJj8/vr5/v/6+v7/+vr+/7Cn/P9dTPr+Wkn6/llI+v5YSPn+V0f5/lVH+f9URvr+U0b5/lJF+P9RRPj/UET4/05D+f5NQ/n+TEL5/kpB+P9JQfj/SEH484Bc/P5+W/z/fVr7/3xa/P56Wfz+eVj7/3dY/P53V/z+dVf7/3RW+/5zVfz+clX7/3FU+/5wVPr/blP6/21S+/5uVfv+dl/6/21V+/5oUPr/Z0/6/2ZP+/5lT/r/Y035/2NN+v5hTfr+bFn6/o+C+/+Pg/v/j4L8/n9y+v9cS/r+WUj5/1hI+f9XR/n/VUb5/1RG+f9TRfn+UUX5/lBE+f5PRPj/TkP5/kxC+f5MQvn+SkH4/0pB+P9IQPn+R0D4835b+/98Wvv/e1n8/npZ+/95WPz+eFj7/3dX/P51Vvv/dFb7/3NW/P5yVfv/cFT6/29U+v9uU/r/bVP6/2xS+v9rUfv+alH7/mhQ+v9nUPr/Zk/6/2VO+/5jTvr/Yk36/mFN+f9gTPr+X0v5/15L+f9cSvr+W0n6/lpJ+f9ZSPn/V0j5/1ZH+v5VRvn/VEb5/1NG+f9RRfn+UET5/k9E+f5OQ/j/TUL5/kxC+f5KQfn+SUH5/khA+P9HP/j/RkD483xa/P57Wvv/eln7/3hY/P54WPz+d1f8/nVW+/90Vvz+c1b6/3FV+/5wVPv+b1T7/25T+/5tUvr/bFL6/2pR+/5pUfr/aFD6/2dP+v5mT/v+ZU77/mNO+v9iTfn/YU35/2BM+f9fS/n/Xkv6/lxK+f9bSvn/Wkn6/lhI+f9XSPn/Vkf5/1VG+f9URvn/U0X4/1FF+P9QRPn+T0T5/k5D+P9NQvn+TEL5/kpB+f5JQfj+SED4/0Y/+P9FP/f/RT/483tZ+/96Wfv/eFj7/3dX/P52V/z+dVb7/3RW/P5zVfz+cVT7/nBU+v9wVPr/blP6/21S+v9sUvv+alH6/mlQ+/5oUPr/Z0/7/mZP+/5kTvv+Y076/2JN+/5hTfr+X0z5/15L+v9dS/n/XEr5/1tK+f9aSfr+WEj5/1dH+v5WR/r+VUb5/lRG+P9TRfj/UUX4/1BE+f5PRPn+TkP5/kxC+f5MQvj/SkH4/0lB+P9IQPj/Rj/4/kU/9/9EPvj+Qz7483pZ+/94WPz+d1j7/3ZX/P50Vvv/dFb7/3NW+/9xVPv+cFT6/29U+/5uU/r/bVL6/2xS+v9qUfv+aVH6/2hQ+v9nT/r/ZU77/mVO+/5jTfv+Yk36/2FN+/5fTPn/Xkv6/l1L+f9cSvn/W0n5/1pJ+f9YSPr+V0f5/1ZH+f5VRvn/VEb4/1NF+P9RRPj/UET4/09E+P9NQ/n+TEL4/0xC+f5KQfn+SUH4/0hA+P9GP/j+RT73/0Q++P9DPfj+Qj3383hY/P53WPz+dlf8/nRW+/90Vvv/c1b7/3FV+/5wVPv+b1P7/m1T+v9tUvr/bFL7/mpR+/5pUfv+aFD6/2ZP+v9mT/r/ZE76/mNN+v5iTfr+YUz5/19M+f9eS/n/XUv5/1xK+v5bSfr+Wkn6/lhI+v5XSPr+Vkf6/lRG+f5URvn+UkX5/lFE+f5QRPj/T0P4/01D+f5MQvn+S0L5/kpB+P9JQPj/SED4/0Y/+P5FPvj+RD73/0I99/9CPfj+QD348ndY/P52V/z+dVb7/3NW+/9yVfz+cVT6/3BU+/5vU/v+bVP7/mxS+/5sUvr/alH6/2lR+/5nUPv+Zk/6/2VO+/5kTvr/Y076/2FN+v5hTfr+X0v6/l5L+f9dS/r+W0r6/ltJ+f9aSfn/WEj5/1dI+f9WR/n/VEb4/1NF+f5SRfn/UUX4/1BE+f5PQ/j/TUP5/kxC+f5LQvn+SkH5/klA+f5IQPj/Rj/3/0U+9/9EPvj+Qj34/kE99/9BPPj+Pz3383ZX+/91Vvv/dFb8/nJV+v9xVPr/cFT7/m9T+v9tU/v+bVL6/2xS+/5qUfv+aVD6/2hQ+/5mT/v+ZU/6/2RO+v5jTfr/YU35/2FM+v5fTPn/Xkv5/11L+v5bSvr+Wkn6/llJ+f9YSPr+V0j6/lZH+f5URvn+U0X5/lJF+f5RRfn+UET5/k9E+f5NQ/n+TEL5/ktC+f5KQfn+SED4/khA+P5GP/j/RT/4/0Q++P5DPff/QT33/0E99/8/O/j+Pzz383RW/P50Vvz+clX7/3FV+/9wVPv+b1P7/m1T+/5tUvr/a1L6/2pR+/5pUfr/Z1D6/2ZP+v9lT/r/ZE76/2JN+v9iTfr/YEz5/19M+f9eS/n/XUv5/1tK+f9aSfr+WUn5/1hI+f9XSPr+Vkf4/1RG+f5TRfn+UkX5/lBF+f5QRPn+TkP5/k1D+P9MQvn+S0L5/klB+P9JQfj/R0D5/kY/+P9FPvf/RD73/0I99/9BPff/QDz4/j889/8+O/f/Pzz483NV+/5yVfv+cVT7/3BU+/5vU/v+bVP7/mxS+/5rUvr/alD7/mlQ+v9oUPr/Zk/6/2VP+/5kTvr/Yk36/mFN+v9hTfn/X0z5/15L+v5dSvn/W0r5/1pJ+f9aSfr+WEj5/1ZH+f9WR/n+VEb5/lNG+f9SRfn+UUT4/1BE+P9OQ/n+TUL5/kxC+P9LQvj/SUH4/0lA+P5HQPf/Rj/3/0U/+P9EPvf/Qj33/0E99/9APPf/Pzv3/z879/8+O/f/Pzz38wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
-"
-          />
-          <span class="title">Enter</span>
-        </div>
-        <div id="enter-badge-close" class="close-button">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <mask
-              id="mask0_9401_50408"
-              style="mask-type: luminance"
-              maskUnits="userSpaceOnUse"
-              x="0"
-              y="0"
-              width="16"
-              height="16"
-            >
-              <rect width="16" height="16" fill="white"></rect>
-            </mask>
-            <g mask="url(#mask0_9401_50408)">
-              <path
-                d="M4.26683 12.6673L3.3335 11.734L7.06683 8.00065L3.3335 4.26732L4.26683 3.33398L8.00016 7.06732L11.7335 3.33398L12.6668 4.26732L8.9335 8.00065L12.6668 11.734L11.7335 12.6673L8.00016 8.93398L4.26683 12.6673Z"
-                fill="white"
-                fill-opacity="0.7"
-              ></path>
-            </g>
-          </svg>
+  <section class="hero" id="top">
+    <div class="hero-copy">
+      <div class="hero-tag">Nigeria's Rib-Cracker</div>
+      <h1>ABARIE<em>.COM</em></h1>
+      <p class="hero-desc">
+        From hawking vegetables on the streets of Lagos to headlining sold-out shows — Okeke Ifeanyichukwu Daniel is Nigeria's most electrifying stand-up comedian and compere. Born in Lagos, rooted in Nnewi, Anambra State. The laughter never stopped.
+      </p>
+      <div class="hero-btns">
+        <a href="#shows" class="btn-primary">See Shows &amp; Events</a>
+        <a href="#connect" class="btn-outline">Follow on Socials</a>
+      </div>
+    </div>
+    <div class="hero-img-wrap">
+      <div class="hero-img-frame">
+        <div class="hero-img-placeholder">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          ARTIST PHOTO<br/>GOES HERE
         </div>
       </div>
-    </a>
-    <script>
-      if (window.self !== window.top || navigator.userAgent.includes("puppeteer")) {
-        var badge = document.getElementById("enter-badge");
-        if (badge) {
-          badge.style.display = "none";
-        }
-      }
-      var closeButton = document.getElementById("enter-badge-close");
-      if (closeButton) {
-        closeButton.addEventListener("click", function (event) {
-          event.preventDefault();
-          event.stopPropagation();
-          var badge = document.getElementById("enter-badge");
-          if (badge) {
-            badge.style.display = "none";
-          }
-        });
-      }
-    </script>
-  </body>
+      <div class="stat-chip left"><span>2021</span>Breakthrough Year</div>
+      <div class="stat-chip bottom"><span>73K+</span>Facebook Fans</div>
+    </div>
+  </section>
+
+  <div class="social-strip">
+    <p>Follow Along</p>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/abarie.com_/" target="_blank" class="social-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        @abarie.com_
+      </a>
+      <a href="https://www.facebook.com/Abariedotcomcomedy/" target="_blank" class="social-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        Abariedotcomcomedy
+      </a>
+      <a href="https://www.youtube.com/channel/UCqwQwJ-pYK1hlrEjAmgbw4Q" target="_blank" class="social-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+        YouTube Channel
+      </a>
+      <a href="https://www.tiktok.com/discover/abarie-nigerian-comedian" target="_blank" class="social-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+        TikTok
+      </a>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="about-grid">
+      <div>
+        <div class="section-tag">The Story</div>
+        <h2 class="section-title">COMEDY<br/>WAS ALWAYS<br/>IN HIM</h2>
+        <p class="section-body">Born in Lagos and raised with deep Nnewi, Anambra State roots, Ifeanyichukwu Daniel Okeke — the man the world knows as <strong style="color:var(--cream)">Abarie.com</strong> — didn't discover comedy. Comedy found him. On construction sites, in market stalls, and through years of humble hustle, his gift for making people laugh was simply undeniable.</p>
+        <p class="section-body" style="margin-top:-1rem;">His career ignited in 2021 and has not slowed since. Today he stands as one of Nigeria's sharpest stand-up voices and most in-demand comperes — a headline act who has shared stages with Nigeria's biggest comedy names and who owns his show franchise, <em style="color:var(--gold)">So Far So Good</em>.</p>
+        <div class="quote-block">
+          <p>"From selling vegetables to fend for my large family, to being a labourer at construction sites — I never let my reality then judge my future."</p>
+          <cite>— Abarie.com, Saturday Beats / Punch Nigeria</cite>
+        </div>
+        <div class="about-facts">
+          <div class="fact-card"><strong>2021</strong><small>Career Breakthrough</small></div>
+          <div class="fact-card"><strong>73K+</strong><small>Facebook Fans</small></div>
+          <div class="fact-card"><strong>20K+</strong><small>Instagram Followers</small></div>
+          <div class="fact-card"><strong>SFSG 2</strong><small>Headline Shows Run</small></div>
+        </div>
+      </div>
+      <div>
+        <div class="about-image">
+          <div class="about-image-placeholder">
+            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <br/>PERFORMER PHOTO
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="shows" class="shows-bg">
+    <div class="shows-header">
+      <div>
+        <div class="section-tag">Live Performances</div>
+        <h2 class="section-title">SHOWS &amp;<br/>EVENTS</h2>
+      </div>
+      <a href="#booking" class="btn-outline">Book for Your Event</a>
+    </div>
+    <div class="shows-grid">
+      <div class="show-card">
+        <div class="show-card-thumb"><span class="show-label">SFSG 3</span><div class="show-badge upcoming">Upcoming</div></div>
+        <div class="show-card-body">
+          <div class="show-card-date">📅 Date TBA — Lagos, Nigeria</div>
+          <div class="show-card-title">SO FAR SO GOOD 3.0</div>
+          <div class="show-card-venue"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Venue TBA — Lagos</div>
+          <div class="show-card-feat">Featuring: <span>Top Nigerian Comedy Acts</span></div>
+          <a href="#booking" class="show-card-link">Get Notified →</a>
+        </div>
+      </div>
+      <div class="show-card">
+        <div class="show-card-thumb"><span class="show-label">SFSG 2</span><div class="show-badge past">Completed</div></div>
+        <div class="show-card-body">
+          <div class="show-card-date">📅 25 May 2025 — Okota, Lagos</div>
+          <div class="show-card-title">SO FAR SO GOOD 2.0</div>
+          <div class="show-card-venue"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Hill Crest Event Center, Ago Palace Way, Okota</div>
+          <div class="show-card-feat">Featuring: <span>MC Monica, Kenny Blaq, Sarkin Dariya, Destalker, Kelvin Great, Da Saint</span></div>
+          <a href="https://www.youtube.com/watch?v=gqENYWBeIXA" target="_blank" class="show-card-link">Watch Highlights →</a>
+        </div>
+      </div>
+      <div class="show-card">
+        <div class="show-card-thumb"><span class="show-label">SFSG 1</span><div class="show-badge past">Completed</div></div>
+        <div class="show-card-body">
+          <div class="show-card-date">📅 5 May 2024 — Victoria Island, Lagos</div>
+          <div class="show-card-title">SO FAR SO GOOD 1.0</div>
+          <div class="show-card-venue"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Terra Kulture, Victoria Island, Lagos</div>
+          <div class="show-card-feat">Featuring: <span>A-List Comedians &amp; Artists — Debut Headline Show</span></div>
+          <a href="#media" class="show-card-link">View Media →</a>
+        </div>
+      </div>
+      <div class="show-card">
+        <div class="show-card-thumb"><span class="show-label">GUEST</span><div class="show-badge past">Completed</div></div>
+        <div class="show-card-body">
+          <div class="show-card-date">📅 2023 — Various Nigeria Stages</div>
+          <div class="show-card-title">MUDIAGA COMEDY SHOW (4TH SERVICE)</div>
+          <div class="show-card-venue"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Nigeria</div>
+          <div class="show-card-feat">Guest Performer — <span>One of his breakout performances that went viral</span></div>
+          <a href="https://www.youtube.com/watch?v=dPP57_KVzzs" target="_blank" class="show-card-link">Watch on YouTube →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="media">
+    <div class="section-tag">Highlights</div>
+    <h2 class="section-title" style="margin-bottom:2rem;">WATCH &amp; LAUGH</h2>
+    <div class="media-grid">
+      <div class="media-cell wide" onclick="window.open('https://www.youtube.com/watch?v=gqENYWBeIXA','_blank')">
+        <div class="media-cell-label">SFSG 2.0 SHOW HIGHLIGHTS<br/>MAY 2025</div>
+        <div class="play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+      </div>
+      <div class="media-cell" onclick="window.open('https://www.youtube.com/watch?v=dPP57_KVzzs','_blank')">
+        <div class="media-cell-label">MUDIAGA<br/>COMEDY SHOW<br/>2023</div>
+        <div class="play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+      </div>
+      <div class="media-cell" onclick="window.open('https://www.youtube.com/channel/UCqwQwJ-pYK1hlrEjAmgbw4Q','_blank')">
+        <div class="media-cell-label">VIRAL<br/>PERFORMANCE<br/>2025</div>
+        <div class="play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+      </div>
+      <div class="media-cell" onclick="window.open('https://www.youtube.com/channel/UCqwQwJ-pYK1hlrEjAmgbw4Q','_blank')">
+        <div class="media-cell-label">SFSG 1.0<br/>TERRA KULTURE<br/>2024</div>
+        <div class="play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:2.5rem;">
+      <a href="https://www.youtube.com/channel/UCqwQwJ-pYK1hlrEjAmgbw4Q" target="_blank" class="btn-outline">Watch All on YouTube →</a>
+    </div>
+  </section>
+
+  <section id="connect" class="connect-bg">
+    <div style="text-align:center;margin-bottom:3rem;">
+      <div class="section-tag" style="justify-content:center;">Official Socials</div>
+      <h2 class="section-title">FOLLOW THE<br/>LAUGHTER</h2>
+      <p style="color:var(--text);max-width:480px;margin:1rem auto 0;line-height:1.8;font-size:0.95rem;">Abarie.com keeps the jokes coming daily. Follow along on every platform and never miss a punchline.</p>
+    </div>
+    <div class="connect-grid">
+      <a href="https://www.instagram.com/abarie.com_/" target="_blank" class="platform-card">
+        <div class="platform-icon" style="background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </div>
+        <div class="platform-name">Instagram</div>
+        <div class="platform-handle">@abarie.com_</div>
+        <div class="platform-stat">20K+ Followers · 221 Posts</div>
+      </a>
+      <a href="https://www.facebook.com/Abariedotcomcomedy/" target="_blank" class="platform-card">
+        <div class="platform-icon" style="background:#1877f2;">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </div>
+        <div class="platform-name">Facebook</div>
+        <div class="platform-handle">Abariedotcomcomedy</div>
+        <div class="platform-stat">73K+ Likes · Active Daily</div>
+      </a>
+      <a href="https://www.youtube.com/channel/UCqwQwJ-pYK1hlrEjAmgbw4Q" target="_blank" class="platform-card">
+        <div class="platform-icon" style="background:#ff0000;">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+        </div>
+        <div class="platform-name">YouTube</div>
+        <div class="platform-handle">Abarie dotcom comedy</div>
+        <div class="platform-stat">Stand-up Videos · Comedy Clips</div>
+      </a>
+      <a href="https://www.tiktok.com/discover/abarie-nigerian-comedian" target="_blank" class="platform-card">
+        <div class="platform-icon" style="background:#010101;">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+        </div>
+        <div class="platform-name">TikTok</div>
+        <div class="platform-handle">Abarie Comedy</div>
+        <div class="platform-stat">Viral Clips · Trending Content</div>
+      </a>
+    </div>
+  </section>
+
+  <section id="booking">
+    <div class="booking-wrap">
+      <div class="section-tag">Bookings &amp; Enquiries</div>
+      <h2 class="section-title">BOOK ABARIE<br/>FOR YOUR EVENT</h2>
+      <p class="section-body">Looking for a headline comedian, a sharp MC/compere, or the life of your corporate event, wedding, concert, or private show? Abarie.com delivers every time. Reach out directly via any of the channels below.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+        <a href="mailto:Abariedaniel212@gmail.com" class="btn-primary">Email Abarie</a>
+        <a href="https://wa.me/2347031557062" target="_blank" class="btn-outline">WhatsApp Now</a>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-item">
+          <div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div><strong>Email</strong><a href="mailto:Abariedaniel212@gmail.com">Abariedaniel212@gmail.com</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.28h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.88a16 16 0 0 0 6.13 6.13l1.17-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+          <div><strong>WhatsApp / Phone</strong><a href="tel:+2347031557062">+234 703 155 7062</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
+          <div><strong>Instagram DM</strong><a href="https://www.instagram.com/abarie.com_/" target="_blank">@abarie.com_</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></div>
+          <div><strong>Facebook</strong><a href="https://www.facebook.com/Abariedotcomcomedy/" target="_blank">Abariedotcomcomedy</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div>
+      <div class="footer-logo">ABARIE<span>.COM</span></div>
+      <p style="margin-top:6px;">Stand-Up Comedian & Compere · Lagos, Nigeria</p>
+    </div>
+    <p>© 2025 Abarie.com Entertainment. Demo site.</p>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/abarie.com_/" target="_blank" title="Instagram">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a href="https://www.facebook.com/Abariedotcomcomedy/" target="_blank" title="Facebook">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+      <a href="https://www.youtube.com/channel/UCqwQwJ-pYK1hlrEjAmgbw4Q" target="_blank" title="YouTube">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/></svg>
+      </a>
+    </div>
+  </footer>
+
+</body>
 </html>
