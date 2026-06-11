@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio – Abarie.com | Comedian & Compere</title>
+  <meta name="description" content="Abarie.com's full portfolio — shows, videos, gallery, and press highlights."/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Sora:wght@300;400;600;700&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <style>
+    .page-hero {
+      padding: 140px 0 80px;
+      background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 60%, var(--mid) 100%);
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute; top: -50%; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 600px; border-radius: 50%;
+      background: rgba(232,64,58,0.06);
+      pointer-events: none;
+    }
+    .page-hero-tag { color: var(--primary); margin-bottom: 1rem; justify-content: center; }
+    .page-hero h1 { color: var(--white); margin-bottom: 1rem; }
+    .page-hero p { color: rgba(255,255,255,0.55); max-width: 520px; margin: 0 auto; }
+
+    .filter-bar {
+      display: flex; gap: 0.5rem; flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+    .filter-btn {
+      padding: 7px 18px; border-radius: 50px;
+      font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      border: 1.5px solid var(--border);
+      background: transparent; color: var(--muted);
+      cursor: pointer; transition: all .2s;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--primary); border-color: var(--primary); color: white;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .portfolio-item {
+      border-radius: var(--radius-lg); overflow: hidden;
+      background: var(--light); border: 1px solid var(--border);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .portfolio-item:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+    .portfolio-item.wide { grid-column: span 2; }
+
+    .p-thumb {
+      height: 220px; background: var(--light);
+      position: relative; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .p-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .p-thumb-ph {
+      text-align: center; color: var(--border);
+      font-family: var(--font-display); letter-spacing: 3px; font-size: 0.85rem;
+    }
+    .p-play {
+      position: absolute; width: 52px; height: 52px; border-radius: 50%;
+      background: var(--primary); display: flex; align-items: center; justify-content: center;
+      color: white; transition: transform .2s;
+    }
+    .portfolio-item:hover .p-play { transform: scale(1.1); }
+    .p-type {
+      position: absolute; top: 12px; left: 12px;
+      background: rgba(0,0,0,0.6); color: white;
+      font-size: 0.62rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      padding: 4px 10px; border-radius: 50px;
+    }
+    .p-body { padding: 18px; background: var(--white); }
+    .p-meta { font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; color: var(--primary); font-weight: 700; margin-bottom: 4px; }
+    .p-title { font-family: var(--font-display); font-size: 1.2rem; color: var(--dark); letter-spacing: 1px; margin-bottom: 6px; }
+    .p-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.65; }
+
+    @media (max-width: 768px) { .portfolio-item.wide { grid-column: span 1; } }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container">
+    <div class="navbar-inner">
+      <a href="index.html" class="nav-logo">ABARIE<span>.COM</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="portfolio.html" class="active">Portfolio</a></li>
+        <li><a href="book-me.html">Book Me</a></li>
+        <li><a href="tickets.html">Tickets</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+        <li><a href="contacts.html">Contact</a></li>
+      </ul>
+      <a href="book-me.html" class="nav-cta">Book Abarie</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="book-me.html">Book Me</a></li>
+    <li><a href="tickets.html">Tickets</a></li>
+    <li><a href="testimonials.html">Testimonials</a></li>
+    <li><a href="contacts.html">Contact</a></li>
+  </ul>
+  <a href="book-me.html" class="btn-red">Book Abarie Now</a>
+</div>
+
+<!-- Page Hero -->
+<div class="page-hero">
+  <div class="container">
+    <div class="tag page-hero-tag">Abarie.com</div>
+    <h1 class="section-title">PORTFOLIO</h1>
+    <p>Shows, videos, gallery, and stage appearances — Abarie's full body of work.</p>
+  </div>
+</div>
+
+<!-- Portfolio Content -->
+<section style="background:var(--offwhite);" id="media">
+  <div class="container">
+
+    <div class="filter-bar reveal">
+      <button class="filter-btn active">All</button>
+      <button class="filter-btn">Videos</button>
+      <button class="filter-btn">Gallery</button>
+      <button class="filter-btn">Shows</button>
+      <button class="filter-btn">Guest Appearances</button>
+    </div>
+
+    <div class="portfolio-grid reveal">
+
+      <!-- SFSG 2.0 Highlights (wide) -->
+      <div class="portfolio-item wide">
+        <a href="https://www.youtube.com/watch?v=gqENYWBeIXA" target="_blank" style="display:block;">
+          <div class="p-thumb" style="height:300px;">
+            <!-- <img src="images/webp/sfsg2-wide.webp" alt="SFSG 2.0"/> -->
+            <div class="p-thumb-ph">SFSG 2.0 HIGHLIGHT VIDEO<br/><span style="font-size:0.7rem; opacity:0.5;">images/webp/sfsg2-wide.jpg</span></div>
+            <div class="p-play"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+            <span class="p-type">▶ Video</span>
+          </div>
+        </a>
+        <div class="p-body">
+          <div class="p-meta">Video · May 2025</div>
+          <div class="p-title">So Far So Good 2.0 — Full Show Highlights</div>
+          <div class="p-desc">Hill Crest Event Center, Ago Palace Way, Okota, Lagos. Featuring MC Monica, Kenny Blaq, Sarkin Dariya, Destalker, Kelvin Great & Da Saint.</div>
+        </div>
+      </div>
+
+      <!-- SFSG 1.0 Gallery -->
+      <div class="portfolio-item">
+        <div class="p-thumb">
+          <!-- <img src="images/webp/sfsg1-1.webp" alt="SFSG 1.0"/> -->
+          <div class="p-thumb-ph">SFSG 1.0 PHOTO</div>
+          <span class="p-type">📷 Gallery</span>
+        </div>
+        <div class="p-body">
+          <div class="p-meta">Gallery · May 2024</div>
+          <div class="p-title">So Far So Good 1.0 — Debut Show</div>
+          <div class="p-desc">Terra Kulture, Victoria Island, Lagos. A-list comedians and artists for the debut headline show.</div>
+        </div>
+      </div>
+
+      <!-- Mudiaga Video -->
+      <div class="portfolio-item">
+        <a href="https://www.youtube.com/watch?v=dPP57_KVzzs" target="_blank" style="display:block;">
+          <div class="p-thumb">
+            <!-- <img src="images/webp/mudiaga.webp" alt="Mudiaga Show"/> -->
+            <div class="p-thumb-ph">MUDIAGA SHOW</div>
+            <div class="p-play"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+            <span class="p-type">▶ Video</span>
+          </div>
+        </a>
+        <div class="p-body">
+          <div class="p-meta">Video · 2023</div>
+          <div class="p-title">Mudiaga Comedy Show (4th Service) — Viral Performance</div>
+          <div class="p-desc">One of Abarie's breakout performances that went viral across social media platforms.</div>
+        </div>
+      </div>
+
+      <!-- Placeholder gallery slots -->
+      <div class="portfolio-item">
+        <div class="p-thumb">
+          <div class="p-thumb-ph">SHOW PHOTO<br/><span style="font-size:0.7rem; opacity:0.5;">images/webp/show-4.jpg</span></div>
+          <span class="p-type">📷 Gallery</span>
+        </div>
+        <div class="p-body">
+          <div class="p-meta">Gallery · 2024</div>
+          <div class="p-title">Stage Moments — Lagos Shows</div>
+          <div class="p-desc">Behind the scenes and on-stage moments from various Lagos performances.</div>
+        </div>
+      </div>
+
+      <div class="portfolio-item">
+        <div class="p-thumb">
+          <div class="p-thumb-ph">CORPORATE EVENT<br/><span style="font-size:0.7rem; opacity:0.5;">images/webp/corporate-1.jpg</span></div>
+          <span class="p-type">📷 Gallery</span>
+        </div>
+        <div class="p-body">
+          <div class="p-meta">Gallery · 2024</div>
+          <div class="p-title">Corporate MC Appearances</div>
+          <div class="p-desc">Abarie.com as Master of Ceremonies at corporate events and brand activations.</div>
+        </div>
+      </div>
+
+      <div class="portfolio-item">
+        <a href="https://www.youtube.com/channel/UCqwQwJ-pYK1hlrEjAmgbw4Q" target="_blank" style="display:block;">
+          <div class="p-thumb">
+            <div class="p-thumb-ph">MORE VIDEOS<br/><span style="font-size:0.7rem; opacity:0.5;">Visit YouTube channel</span></div>
+            <div class="p-play"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+            <span class="p-type">▶ Video</span>
+          </div>
+        </a>
+        <div class="p-body">
+          <div class="p-meta">Video · YouTube</div>
+          <div class="p-title">More Videos on YouTube</div>
+          <div class="p-desc">Subscribe to Abarie's YouTube channel for the latest comedy clips and show highlights.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center; margin-top:3rem;" class="reveal">
+      <a href="https://www.youtube.com/channel/UCqwQwJ-pYK1hlrEjAmgbw4Q" target="_blank" class="btn-red">Watch All on YouTube</a>
+    </div>
+  </div>
+</section>
+
+<!-- Booking CTA -->
+<section class="booking-snippet">
+  <div class="container">
+    <div class="booking-inner">
+      <div><h2>WANT ABARIE<br/>AT YOUR NEXT SHOW?</h2><p>Get in touch and let's make it happen.</p></div>
+      <div class="booking-btns">
+        <a href="book-me.html" class="btn-outline-white">Book Now</a>
+        <a href="contacts.html" class="btn-outline-white">Contact Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo">ABARIE<span>.COM</span></div>
+        <p>Nigeria's most electrifying stand-up comedian and compere. Based in Lagos, performing everywhere.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/abarie.com_/" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="https://www.facebook.com/Abariedotcomcomedy/" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="https://www.youtube.com/channel/UCqwQwJ-pYK1hlrEjAmgbw4Q" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="book-me.html">Book Me</a></li><li><a href="tickets.html">Tickets</a></li><li><a href="testimonials.html">Testimonials</a></li><li><a href="contacts.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h4>Services</h4><ul><li><a href="book-me.html">Stand-Up Comedy</a></li><li><a href="book-me.html">MC / Compere</a></li><li><a href="book-me.html">Corporate Events</a></li><li><a href="book-me.html">Weddings</a></li></ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul class="footer-contact"><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:Abariedaniel212@gmail.com">Abariedaniel212@gmail.com</a></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.28h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.88a16 16 0 0 0 6.13 6.13l1.17-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="tel:+2347031557062">+234 703 155 7062</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 Abarie.com Entertainment. All rights reserved.</p><p>Built with ❤️ for Nigeria's Rib-Cracker</p></div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  // Filter functionality
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
