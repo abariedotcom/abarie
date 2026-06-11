@@ -1,346 +1,633 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Abarie.com – Nigeria's Rib-Cracker</title>
+  <title>Abarie.com – Nigeria's Rib-Cracker | Comedian & Compere</title>
+  <meta name="description" content="Abarie.com – Okeke Ifeanyichukwu Daniel, Nigeria's most electrifying stand-up comedian and compere. Book for your event today."/>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Sora:wght@300;400;600;700&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet"/>
-  <style>
-    :root {
-      --black:    #0a0a0a;
-      --deepGray: #141414;
-      --card:     #1a1a1a;
-      --gold:     #e8b84b;
-      --goldDim:  #b8892a;
-      --cream:    #f5f0e6;
-      --white:    #ffffff;
-      --text:     #c8c0b0;
-      --accent:   #e84b4b;
-    }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { background: var(--black); color: var(--text); font-family: 'Sora', sans-serif; font-size: 16px; line-height: 1.6; overflow-x: hidden; }
-
-    /* NAV */
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 18px 6vw; background: rgba(10,10,10,0.85); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(232,184,75,0.12); }
-    .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: var(--gold); letter-spacing: 2px; text-decoration: none; }
-    .nav-logo span { color: var(--white); }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a { color: var(--text); text-decoration: none; font-size: 0.85rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; transition: color .2s; }
-    .nav-links a:hover { color: var(--gold); }
-    .nav-book { background: var(--gold); color: var(--black); padding: 10px 22px; border-radius: 3px; font-size: 0.8rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; transition: background .2s; }
-    .nav-book:hover { background: var(--goldDim); }
-
-    /* HERO */
-    .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding: 120px 6vw 80px; gap: 60px; position: relative; overflow: hidden; }
-    .hero::before { content: ''; position: absolute; top: -10%; right: 30%; width: 2px; height: 130%; background: linear-gradient(to bottom, transparent, var(--gold), transparent); opacity: 0.18; transform: rotate(-8deg); transform-origin: top; }
-    .hero-tag { font-size: 0.75rem; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 1rem; display: flex; align-items: center; gap: 10px; }
-    .hero-tag::before { content: ''; display: inline-block; width: 30px; height: 2px; background: var(--gold); }
-    .hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(4rem, 8vw, 8rem); line-height: 0.9; color: var(--white); letter-spacing: 2px; margin-bottom: 1.2rem; }
-    .hero h1 em { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 0.55em; display: block; letter-spacing: 4px; }
-    .hero-desc { font-size: 1rem; color: var(--text); max-width: 420px; margin-bottom: 2.5rem; line-height: 1.8; }
-    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn-primary { background: var(--gold); color: var(--black); padding: 14px 32px; border-radius: 3px; font-weight: 700; font-size: 0.85rem; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none; transition: transform .15s, background .2s; }
-    .btn-primary:hover { background: var(--goldDim); transform: translateY(-2px); }
-    .btn-outline { border: 1.5px solid rgba(232,184,75,0.4); color: var(--gold); padding: 14px 32px; border-radius: 3px; font-weight: 600; font-size: 0.85rem; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none; transition: border-color .2s, background .2s; }
-    .btn-outline:hover { border-color: var(--gold); background: rgba(232,184,75,0.06); }
-    .hero-img-wrap { position: relative; display: flex; justify-content: center; }
-    .hero-img-frame { width: 100%; max-width: 440px; aspect-ratio: 3/4; background: var(--card); border-radius: 6px; overflow: hidden; position: relative; border: 1px solid rgba(232,184,75,0.15); }
-    .hero-img-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; color: rgba(232,184,75,0.3); font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 3px; }
-    .hero-img-placeholder svg { opacity: 0.25; }
-    .stat-chip { position: absolute; background: var(--gold); color: var(--black); border-radius: 4px; padding: 10px 16px; font-weight: 700; font-size: 0.78rem; line-height: 1.3; box-shadow: 0 8px 30px rgba(0,0,0,0.5); }
-    .stat-chip span { display: block; font-size: 1.4rem; font-family: 'Bebas Neue', sans-serif; letter-spacing: 1px; }
-    .stat-chip.left { left: -30px; top: 25%; }
-    .stat-chip.bottom { right: -20px; bottom: 20%; }
-
-    /* SOCIAL STRIP */
-    .social-strip { background: var(--deepGray); border-top: 1px solid rgba(232,184,75,0.08); border-bottom: 1px solid rgba(232,184,75,0.08); padding: 24px 6vw; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
-    .social-strip p { font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; color: var(--goldDim); font-weight: 700; white-space: nowrap; }
-    .social-icons { display: flex; gap: 1.2rem; flex-wrap: wrap; }
-    .social-link { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 0.82rem; font-weight: 600; padding: 8px 16px; border: 1px solid rgba(255,255,255,0.08); border-radius: 3px; transition: border-color .2s, color .2s; }
-    .social-link:hover { border-color: var(--gold); color: var(--gold); }
-
-    /* SECTIONS */
-    section { padding: 100px 6vw; }
-    .section-tag { font-size: 0.7rem; letter-spacing: 5px; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 10px; }
-    .section-tag::before { content: ''; display: inline-block; width: 24px; height: 1.5px; background: var(--gold); }
-    .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.4rem, 5vw, 4rem); color: var(--white); letter-spacing: 2px; line-height: 1; margin-bottom: 1.2rem; }
-    .section-body { color: var(--text); max-width: 600px; line-height: 1.85; margin-bottom: 2.5rem; }
-
-    /* ABOUT */
-    .about-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: center; }
-    .about-facts { margin-top: 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
-    .fact-card { background: var(--card); border: 1px solid rgba(232,184,75,0.1); border-radius: 4px; padding: 20px; }
-    .fact-card strong { display: block; font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: var(--gold); letter-spacing: 1px; line-height: 1; margin-bottom: 4px; }
-    .fact-card small { font-size: 0.75rem; letter-spacing: 1px; color: rgba(200,192,176,0.7); text-transform: uppercase; }
-    .quote-block { border-left: 3px solid var(--gold); padding-left: 24px; margin-top: 2rem; }
-    .quote-block p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.1rem; color: var(--cream); line-height: 1.8; }
-    .quote-block cite { display: block; margin-top: 8px; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); font-style: normal; }
-    .about-image { width: 100%; aspect-ratio: 4/5; background: var(--card); border-radius: 6px; position: relative; overflow: hidden; border: 1px solid rgba(232,184,75,0.12); display: flex; align-items: center; justify-content: center; }
-    .about-image-placeholder { text-align: center; color: rgba(232,184,75,0.25); font-family: 'Bebas Neue', sans-serif; letter-spacing: 3px; font-size: 0.9rem; }
-    .about-image::before, .about-image::after { content: ''; position: absolute; width: 28px; height: 28px; border-color: var(--gold); border-style: solid; opacity: 0.5; }
-    .about-image::before { top: 16px; left: 16px; border-width: 2px 0 0 2px; }
-    .about-image::after { bottom: 16px; right: 16px; border-width: 0 2px 2px 0; }
-
-    /* SHOWS */
-    .shows-bg { background: var(--deepGray); }
-    .shows-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 3rem; flex-wrap: wrap; gap: 1rem; }
-    .shows-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
-    .show-card { background: var(--card); border: 1px solid rgba(232,184,75,0.1); border-radius: 6px; overflow: hidden; transition: border-color .25s, transform .2s; }
-    .show-card:hover { border-color: var(--gold); transform: translateY(-4px); }
-    .show-card-thumb { height: 180px; background: linear-gradient(135deg, #1a1a1a 0%, #242424 100%); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
-    .show-card-thumb .show-label { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: rgba(232,184,75,0.15); letter-spacing: 4px; }
-    .show-badge { position: absolute; top: 14px; right: 14px; color: white; font-size: 0.65rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 4px 10px; border-radius: 2px; }
-    .show-badge.past { background: rgba(255,255,255,0.1); }
-    .show-badge.upcoming { background: var(--gold); color: var(--black); }
-    .show-card-body { padding: 22px; }
-    .show-card-date { font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
-    .show-card-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; color: var(--white); letter-spacing: 1px; margin-bottom: 6px; }
-    .show-card-venue { font-size: 0.82rem; color: var(--text); margin-bottom: 16px; display: flex; align-items: center; gap: 6px; }
-    .show-card-feat { font-size: 0.78rem; color: rgba(200,192,176,0.6); margin-bottom: 18px; }
-    .show-card-feat span { color: var(--text); }
-    .show-card-link { display: inline-block; font-size: 0.78rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(232,184,75,0.3); padding-bottom: 2px; transition: border-color .2s; }
-    .show-card-link:hover { border-color: var(--gold); }
-
-    /* MEDIA */
-    .media-grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 220px); gap: 12px; }
-    .media-cell { background: var(--card); border-radius: 4px; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; border: 1px solid rgba(255,255,255,0.04); transition: border-color .2s; cursor: pointer; }
-    .media-cell:hover { border-color: rgba(232,184,75,0.3); }
-    .media-cell.wide { grid-column: span 2; }
-    .media-cell-label { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 3px; color: rgba(232,184,75,0.2); text-align: center; padding: 16px; }
-    .play-btn { position: absolute; width: 52px; height: 52px; background: rgba(232,184,75,0.15); border: 1.5px solid rgba(232,184,75,0.4); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gold); transition: background .2s; }
-    .media-cell:hover .play-btn { background: rgba(232,184,75,0.3); }
-
-    /* CONNECT */
-    .connect-bg { background: var(--deepGray); }
-    .connect-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
-    .platform-card { background: var(--card); border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; padding: 28px 24px; text-align: center; transition: border-color .25s, transform .2s; text-decoration: none; display: block; }
-    .platform-card:hover { border-color: var(--gold); transform: translateY(-4px); }
-    .platform-icon { width: 52px; height: 52px; border-radius: 12px; margin: 0 auto 16px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; }
-    .platform-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; color: var(--white); letter-spacing: 2px; margin-bottom: 4px; }
-    .platform-handle { font-size: 0.78rem; color: var(--gold); margin-bottom: 10px; }
-    .platform-stat { font-size: 0.72rem; color: rgba(200,192,176,0.5); }
-
-    /* BOOKING */
-    .booking-wrap { max-width: 760px; margin: 0 auto; text-align: center; }
-    .booking-wrap .section-tag { justify-content: center; }
-    .booking-wrap .section-body { margin: 0 auto 2.5rem; text-align: center; }
-    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 2.5rem; text-align: left; }
-    .contact-item { background: var(--card); border: 1px solid rgba(232,184,75,0.1); border-radius: 4px; padding: 20px 24px; display: flex; align-items: center; gap: 16px; }
-    .contact-icon { width: 42px; height: 42px; background: rgba(232,184,75,0.1); border-radius: 4px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--gold); }
-    .contact-item strong { display: block; font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; color: rgba(200,192,176,0.5); margin-bottom: 3px; }
-    .contact-item a, .contact-item span { font-size: 0.9rem; color: var(--white); text-decoration: none; }
-    .contact-item a:hover { color: var(--gold); }
-
-    /* FOOTER */
-    footer { background: #060606; border-top: 1px solid rgba(232,184,75,0.1); padding: 48px 6vw; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
-    .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; color: var(--gold); letter-spacing: 2px; }
-    .footer-logo span { color: rgba(255,255,255,0.4); }
-    footer p { font-size: 0.78rem; color: rgba(200,192,176,0.35); }
-    .footer-social { display: flex; gap: 1rem; }
-    .footer-social a { width: 38px; height: 38px; border: 1px solid rgba(255,255,255,0.08); border-radius: 4px; display: flex; align-items: center; justify-content: center; color: var(--text); text-decoration: none; font-size: 0.85rem; transition: border-color .2s, color .2s; }
-    .footer-social a:hover { border-color: var(--gold); color: var(--gold); }
-
-    /* DEMO BANNER */
-    .demo-banner { background: rgba(232,184,75,0.08); border: 1px dashed rgba(232,184,75,0.35); text-align: center; padding: 14px 24px; font-size: 0.78rem; color: var(--gold); letter-spacing: 1px; }
-
-    /* RESPONSIVE */
-    @media (max-width: 900px) {
-      .hero { grid-template-columns: 1fr; padding-top: 100px; }
-      .hero-img-wrap { display: none; }
-      .about-grid { grid-template-columns: 1fr; }
-      .about-image { max-height: 300px; }
-      .media-grid { grid-template-columns: 1fr 1fr; }
-      .media-cell.wide { grid-column: span 1; }
-      .contact-grid { grid-template-columns: 1fr; }
-      .nav-links { display: none; }
-    }
-    @media (max-width: 600px) {
-      section { padding: 70px 5vw; }
-      .about-facts { grid-template-columns: 1fr 1fr; }
-      .media-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
-    }
-  </style>
+  <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
 
-  <div class="demo-banner">
-    ⚡ DEMO WEBSITE — Built to showcase Abarie.com's digital potential. All social links are live and accurate.
+<!-- ══════════ NAVBAR ══════════ -->
+<nav class="navbar">
+  <div class="container">
+    <div class="navbar-inner">
+      <a href="index.html" class="nav-logo">ABARIE<span>.COM</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="book-me.html">Book Me</a></li>
+        <li><a href="tickets.html">Tickets</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+        <li><a href="contacts.html">Contact</a></li>
+      </ul>
+      <a href="book-me.html" class="nav-cta">Book Abarie</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
+</nav>
 
-  <nav>
-    <a href="#top" class="nav-logo">ABARIE<span>.COM</span></a>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#shows">Shows</a></li>
-      <li><a href="#media">Media</a></li>
-      <li><a href="#connect">Connect</a></li>
-      <li><a href="#booking">Booking</a></li>
-    </ul>
-    <a href="#booking" class="nav-book">Book Abarie</a>
-  </nav>
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="book-me.html">Book Me</a></li>
+    <li><a href="tickets.html">Tickets</a></li>
+    <li><a href="testimonials.html">Testimonials</a></li>
+    <li><a href="contacts.html">Contact</a></li>
+  </ul>
+  <a href="book-me.html" class="btn-red">Book Abarie Now</a>
+</div>
 
-  <section class="hero" id="top">
-    <div class="hero-copy">
-      <div class="hero-tag">Nigeria's Rib-Cracker</div>
-      <h1>ABARIE<em>.COM</em></h1>
-      <p class="hero-desc">
-        From hawking vegetables on the streets of Lagos to headlining sold-out shows — Okeke Ifeanyichukwu Daniel is Nigeria's most electrifying stand-up comedian and compere. Born in Lagos, rooted in Nnewi, Anambra State. The laughter never stopped.
-      </p>
-      <div class="hero-btns">
-        <a href="#shows" class="btn-primary">See Shows &amp; Events</a>
-        <a href="#connect" class="btn-outline">Follow on Socials</a>
+<!-- ══════════ HERO ══════════ -->
+<section class="hero" id="top">
+
+  <!-- Left: Headline copy -->
+  <div class="hero-left">
+    <div class="hero-eyebrow">
+      <span class="dot"></span>
+      Nigeria's Rib-Cracker
+    </div>
+
+    <h1>
+      <span class="thin">The One &amp; Only</span>
+      ABARIE
+      <span style="color:var(--primary);">.COM</span>
+    </h1>
+
+    <p class="hero-desc">
+      From hawking vegetables on the streets of Lagos to headlining sold-out shows —
+      Okeke Ifeanyichukwu Daniel is Nigeria's most electrifying stand-up comedian and
+      compere. Born in Lagos, rooted in Nnewi, Anambra State. The laughter never stopped.
+    </p>
+
+    <div class="hero-btns">
+      <a href="book-me.html" class="btn-red">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
+        Book Abarie
+      </a>
+      <a href="tickets.html" class="btn-outline-white">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6"/><path d="M12 3v13M8 8l4-5 4 5"/></svg>
+        Get Tickets
+      </a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <strong>73<span>K+</span></strong>
+        <small>Facebook Fans</small>
+      </div>
+      <div class="hero-stat">
+        <strong>20<span>K+</span></strong>
+        <small>Instagram Followers</small>
+      </div>
+      <div class="hero-stat">
+        <strong>2021</strong>
+        <small>Breakthrough Year</small>
       </div>
     </div>
-    <div class="hero-img-wrap">
-      <div class="hero-img-frame">
-        <div class="hero-img-placeholder">
-          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-          ARTIST PHOTO<br/>GOES HERE
+  </div>
+
+  <!-- Right: Image slideshow -->
+  <div class="hero-right">
+    <div style="position:relative; width:100%; height:100%; overflow:hidden;">
+      <div id="heroSlides" style="display:flex; height:100%; transition:transform 0.7s cubic-bezier(0.4,0,0.2,1);">
+
+        <!-- Slide 1: Main performer photo -->
+        <div class="hero-slide" style="min-width:100%;">
+          <div class="hero-slide-placeholder">
+            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            HERO PHOTO 1<br/><span style="font-size:0.7rem; letter-spacing:2px; opacity:0.5;">Place abarie-hero-1.webp in images/webp/</span>
+          </div>
+          <div class="hero-slide-overlay">
+            <h3>Nigeria's Rib-Cracker</h3>
+            <p>Abarie.com — Stand-Up Comedian & Compere</p>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="hero-slide" style="min-width:100%;">
+          <div class="hero-slide-placeholder">
+            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            HERO PHOTO 2<br/><span style="font-size:0.7rem; letter-spacing:2px; opacity:0.5;">Place abarie-hero-2.webp in images/webp/</span>
+          </div>
+          <div class="hero-slide-overlay">
+            <h3>So Far So Good</h3>
+            <p>Headline Comedy Show Franchise — Lagos, Nigeria</p>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="hero-slide" style="min-width:100%;">
+          <div class="hero-slide-placeholder">
+            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            SFSG 2.0 POSTER<br/><span style="font-size:0.7rem; letter-spacing:2px; opacity:0.5;">Place sfsg2-poster.webp in images/webp/</span>
+          </div>
+          <div class="hero-slide-overlay">
+            <h3>So Far So Good 2.0</h3>
+            <p>Hill Crest Event Center, Okota — May 25, 2025</p>
+          </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="hero-slide" style="min-width:100%;">
+          <div class="hero-slide-placeholder">
+            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            STAGE PHOTO<br/><span style="font-size:0.7rem; letter-spacing:2px; opacity:0.5;">Place abarie-stage.webp in images/webp/</span>
+          </div>
+          <div class="hero-slide-overlay">
+            <h3>Live on Stage</h3>
+            <p>Compere · Stand-Up · Corporate Events · Weddings</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Arrows -->
+      <div class="hero-slide-arrows">
+        <button class="hero-arrow" id="heroPrev" aria-label="Previous slide">&#8592;</button>
+        <button class="hero-arrow" id="heroNext" aria-label="Next slide">&#8594;</button>
+      </div>
+
+      <!-- Dots -->
+      <div class="hero-slide-nav" id="heroDots"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SOCIAL STRIP ══════════ -->
+<div class="social-strip">
+  <div class="container-wide">
+    <div class="social-strip-inner">
+      <p class="social-strip-label">Follow Along</p>
+      <div class="social-links-row">
+        <a href="https://www.instagram.com/abarie.com_/" target="_blank" class="social-pill">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          @abarie.com_
+        </a>
+        <a href="https://www.facebook.com/Abariedotcomcomedy/" target="_blank" class="social-pill">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          Abariedotcomcomedy
+        </a>
+        <a href="https://www.youtube.com/channel/UCqwQwJ-pYK1hlrEjAmgbw4Q" target="_blank" class="social-pill">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/></svg>
+          YouTube
+        </a>
+        <a href="https://www.tiktok.com/@abarie.com" target="_blank" class="social-pill">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+          TikTok
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ ABOUT SNIPPET ══════════ -->
+<section class="about-section" id="about">
+  <div class="container">
+    <div class="about-grid">
+
+      <div class="about-img-wrap reveal">
+        <div class="about-img-frame">
+          <!-- Replace with: <img src="images/webp/abarie-about.webp" alt="Abarie.com performer photo"/> -->
+          <div class="about-img-placeholder">
+            <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            PERFORMER PHOTO<br/><span style="font-size:0.68rem; letter-spacing:2px;">images/webp/abarie-about.webp</span>
+          </div>
+        </div>
+        <div class="about-badge">
+          <strong>2021</strong>
+          <small>Breakthrough</small>
         </div>
       </div>
-      <div class="stat-chip left"><span>2021</span>Breakthrough Year</div>
-      <div class="stat-chip bottom"><span>73K+</span>Facebook Fans</div>
-    </div>
-  </section>
 
-  <div class="social-strip">
-    <p>Follow Along</p>
-    <div class="social-icons">
-      <a href="https://www.instagram.com/abarie.com_/" target="_blank" class="social-link">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-        @abarie.com_
-      </a>
-      <a href="https://www.facebook.com/Abariedotcomcomedy/" target="_blank" class="social-link">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-        Abariedotcomcomedy
-      </a>
-      <a href="https://www.youtube.com/channel/UCqwQwJ-pYK1hlrEjAmgbw4Q" target="_blank" class="social-link">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
-        YouTube Channel
-      </a>
-      <a href="https://www.tiktok.com/discover/abarie-nigerian-comedian" target="_blank" class="social-link">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
-        TikTok
-      </a>
-    </div>
-  </div>
+      <div class="about-content reveal" style="transition-delay:0.15s;">
+        <div class="tag">The Story</div>
+        <h2 class="section-title" style="margin: 0.8rem 0 1.2rem;">COMEDY<br/>WAS ALWAYS<br/><span>IN HIM</span></h2>
 
-  <section id="about">
-    <div class="about-grid">
-      <div>
-        <div class="section-tag">The Story</div>
-        <h2 class="section-title">COMEDY<br/>WAS ALWAYS<br/>IN HIM</h2>
-        <p class="section-body">Born in Lagos and raised with deep Nnewi, Anambra State roots, Ifeanyichukwu Daniel Okeke — the man the world knows as <strong style="color:var(--cream)">Abarie.com</strong> — didn't discover comedy. Comedy found him. On construction sites, in market stalls, and through years of humble hustle, his gift for making people laugh was simply undeniable.</p>
-        <p class="section-body" style="margin-top:-1rem;">His career ignited in 2021 and has not slowed since. Today he stands as one of Nigeria's sharpest stand-up voices and most in-demand comperes — a headline act who has shared stages with Nigeria's biggest comedy names and who owns his show franchise, <em style="color:var(--gold)">So Far So Good</em>.</p>
-        <div class="quote-block">
-          <p>"From selling vegetables to fend for my large family, to being a labourer at construction sites — I never let my reality then judge my future."</p>
+        <p>
+          Born in Lagos and raised with deep Nnewi, Anambra State roots, Ifeanyichukwu Daniel Okeke —
+          the man the world knows as <strong>Abarie.com</strong> — didn't discover comedy. Comedy found him.
+          On construction sites, in market stalls, and through years of humble hustle, his gift for
+          making people laugh was simply undeniable.
+        </p>
+        <p>
+          His career ignited in 2021 and has not slowed since. Today he stands as one of Nigeria's
+          sharpest stand-up voices and most in-demand comperes — a headline act who has shared stages
+          with Nigeria's biggest comedy names and who owns his show franchise,
+          <em style="color:var(--primary);">So Far So Good</em>.
+        </p>
+
+        <div class="about-quote">
+          <p>"From selling vegetables to fend for my large family, to being a labourer at construction
+          sites — I never let my reality then judge my future."</p>
           <cite>— Abarie.com, Saturday Beats / Punch Nigeria</cite>
         </div>
+
         <div class="about-facts">
-          <div class="fact-card"><strong>2021</strong><small>Career Breakthrough</small></div>
-          <div class="fact-card"><strong>73K+</strong><small>Facebook Fans</small></div>
-          <div class="fact-card"><strong>20K+</strong><small>Instagram Followers</small></div>
-          <div class="fact-card"><strong>SFSG 2</strong><small>Headline Shows Run</small></div>
+          <div class="about-fact"><strong>73<span>K+</span></strong><small>Facebook Fans</small></div>
+          <div class="about-fact"><strong>20<span>K+</span></strong><small>Instagram</small></div>
+          <div class="about-fact"><strong>2<span>+</span></strong><small>Headline Shows</small></div>
+        </div>
+
+        <div style="margin-top:2rem;">
+          <a href="portfolio.html" class="btn-red">See Full Portfolio</a>
         </div>
       </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ UPCOMING/PAST EVENTS CAROUSEL ══════════ -->
+<section class="events-section" id="shows">
+  <div class="container-wide">
+    <div class="events-header reveal">
       <div>
-        <div class="about-image">
-          <div class="about-image-placeholder">
-            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-            <br/>PERFORMER PHOTO
+        <div class="tag">Live Performances</div>
+        <h2 class="section-title" style="margin-top:0.8rem;">SHOWS &amp;<br/><span>EVENTS</span></h2>
+      </div>
+      <a href="tickets.html" class="btn-outline-dark">Get Tickets</a>
+    </div>
+
+    <div class="events-track-wrap reveal">
+      <div class="events-track" id="eventsTrack">
+
+        <!-- Upcoming: SFSG 3 -->
+        <div class="event-card">
+          <div class="event-card-poster">
+            <!-- <img src="images/posters/sfsg3.webp" alt="So Far So Good 3"/> -->
+            <div class="event-poster-placeholder">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              SFSG 3 POSTER
+            </div>
+            <span class="event-badge upcoming">Upcoming</span>
+          </div>
+          <div class="event-card-body">
+            <div class="event-date">📅 Date TBA — Lagos, Nigeria</div>
+            <div class="event-name">SO FAR SO GOOD 3.0</div>
+            <div class="event-venue">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Venue TBA — Lagos
+            </div>
+            <div class="event-acts"><strong>Featuring:</strong> Top Nigerian Comedy Acts</div>
+            <a href="tickets.html" class="event-link">Get Notified →</a>
+          </div>
+        </div>
+
+        <!-- Completed: SFSG 2 -->
+        <div class="event-card">
+          <div class="event-card-poster">
+            <!-- <img src="images/posters/sfsg2.webp" alt="So Far So Good 2"/> -->
+            <div class="event-poster-placeholder">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              SFSG 2 POSTER
+            </div>
+            <span class="event-badge past">Completed</span>
+          </div>
+          <div class="event-card-body">
+            <div class="event-date">📅 25 May 2025 — Okota, Lagos</div>
+            <div class="event-name">SO FAR SO GOOD 2.0</div>
+            <div class="event-venue">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Hill Crest Event Center, Ago Palace Way, Okota
+            </div>
+            <div class="event-acts"><strong>Featuring:</strong> MC Monica, Kenny Blaq, Sarkin Dariya, Destalker, Kelvin Great, Da Saint</div>
+            <a href="https://www.youtube.com/watch?v=gqENYWBeIXA" target="_blank" class="event-link">Watch Highlights →</a>
+          </div>
+        </div>
+
+        <!-- Completed: SFSG 1 -->
+        <div class="event-card">
+          <div class="event-card-poster">
+            <!-- <img src="images/posters/sfsg1.webp" alt="So Far So Good 1"/> -->
+            <div class="event-poster-placeholder">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              SFSG 1 POSTER
+            </div>
+            <span class="event-badge past">Completed</span>
+          </div>
+          <div class="event-card-body">
+            <div class="event-date">📅 5 May 2024 — Victoria Island, Lagos</div>
+            <div class="event-name">SO FAR SO GOOD 1.0</div>
+            <div class="event-venue">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Terra Kulture, Victoria Island, Lagos
+            </div>
+            <div class="event-acts"><strong>Debut Headline Show</strong> — A-List Comedians & Artists</div>
+            <a href="portfolio.html#media" class="event-link">View Media →</a>
+          </div>
+        </div>
+
+        <!-- Guest: Mudiaga -->
+        <div class="event-card">
+          <div class="event-card-poster">
+            <!-- <img src="images/posters/mudiaga.webp" alt="Mudiaga Comedy Show"/> -->
+            <div class="event-poster-placeholder">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              SHOW POSTER
+            </div>
+            <span class="event-badge past">Completed</span>
+          </div>
+          <div class="event-card-body">
+            <div class="event-date">📅 2023 — Nigeria</div>
+            <div class="event-name">MUDIAGA COMEDY SHOW (4TH SERVICE)</div>
+            <div class="event-venue">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Nigeria
+            </div>
+            <div class="event-acts"><strong>Guest Performer</strong> — Breakout viral performance</div>
+            <a href="https://www.youtube.com/watch?v=dPP57_KVzzs" target="_blank" class="event-link">Watch on YouTube →</a>
+          </div>
+        </div>
+
+        <!-- Placeholder card 5 -->
+        <div class="event-card">
+          <div class="event-card-poster">
+            <div class="event-poster-placeholder">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              MORE SHOWS
+            </div>
+            <span class="event-badge past">Completed</span>
+          </div>
+          <div class="event-card-body">
+            <div class="event-date">📅 Various Dates — Nigeria</div>
+            <div class="event-name">GUEST APPEARANCES</div>
+            <div class="event-venue">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Various Venues, Nigeria
+            </div>
+            <div class="event-acts"><strong>Corporate Events</strong> · Weddings · Concerts</div>
+            <a href="portfolio.html" class="event-link">Full Portfolio →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <div class="events-controls">
+      <button class="events-arrow" id="eventsPrev" aria-label="Previous">&#8592;</button>
+      <div class="events-dots" id="eventsDots"></div>
+      <button class="events-arrow" id="eventsNext" aria-label="Next">&#8594;</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ PAST EVENTS / YOUTUBE SLIDER ══════════ -->
+<section class="past-events" id="media">
+  <div class="container-wide">
+    <div class="reveal" style="display:flex; align-items:flex-end; justify-content:space-between; flex-wrap:wrap; gap:1rem; margin-bottom:0.5rem;">
+      <div>
+        <div class="tag" style="color:var(--primary);">Watch & Laugh</div>
+        <h2 class="section-title" style="margin-top:0.8rem;">PAST <span>HIGHLIGHTS</span></h2>
+      </div>
+      <a href="https://www.youtube.com/channel/UCqwQwJ-pYK1hlrEjAmgbw4Q" target="_blank" class="btn-outline-white">
+        All Videos on YouTube →
+      </a>
+    </div>
+    <p class="section-body reveal" style="color:rgba(255,255,255,0.45); margin-bottom:0; transition-delay:0.1s;">
+      Click any card to watch the full video on YouTube.
+    </p>
+
+    <div class="yt-slider-wrap reveal" style="transition-delay:0.2s;">
+      <div class="yt-track" id="ytTrack">
+
+        <a class="yt-card" href="https://www.youtube.com/watch?v=gqENYWBeIXA" target="_blank">
+          <div class="yt-thumb">
+            <!-- <img src="images/webp/sfsg2-thumb.webp" alt="SFSG 2 Highlights"/> -->
+            <div class="yt-thumb-placeholder">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/></svg>
+              SFSG 2.0 HIGHLIGHTS
+            </div>
+            <div class="yt-play">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </div>
+          <div class="yt-body">
+            <div class="yt-meta">May 2025 · Lagos</div>
+            <div class="yt-title">So Far So Good 2.0 — Show Highlights</div>
+            <div class="yt-venue">Hill Crest Event Center, Okota</div>
+          </div>
+        </a>
+
+        <a class="yt-card" href="https://www.youtube.com/watch?v=dPP57_KVzzs" target="_blank">
+          <div class="yt-thumb">
+            <!-- <img src="images/webp/mudiaga-thumb.webp" alt="Mudiaga Comedy Show"/> -->
+            <div class="yt-thumb-placeholder">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/></svg>
+              MUDIAGA SHOW 2023
+            </div>
+            <div class="yt-play">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </div>
+          <div class="yt-body">
+            <div class="yt-meta">2023 · Nigeria</div>
+            <div class="yt-title">Mudiaga Comedy Show (4th Service)</div>
+            <div class="yt-venue">Viral Breakout Performance</div>
+          </div>
+        </a>
+
+        <a class="yt-card" href="https://www.youtube.com/channel/UCqwQwJ-pYK1hlrEjAmgbw4Q" target="_blank">
+          <div class="yt-thumb">
+            <!-- <img src="images/webp/sfsg1-thumb.webp" alt="SFSG 1.0"/> -->
+            <div class="yt-thumb-placeholder">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/></svg>
+              SFSG 1.0 — 2024
+            </div>
+            <div class="yt-play">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </div>
+          <div class="yt-body">
+            <div class="yt-meta">May 2024 · Lagos</div>
+            <div class="yt-title">So Far So Good 1.0 — Debut Show</div>
+            <div class="yt-venue">Terra Kulture, Victoria Island</div>
+          </div>
+        </a>
+
+        <a class="yt-card" href="https://www.youtube.com/channel/UCqwQwJ-pYK1hlrEjAmgbw4Q" target="_blank">
+          <div class="yt-thumb">
+            <div class="yt-thumb-placeholder">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/></svg>
+              MORE VIDEOS
+            </div>
+            <div class="yt-play">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </div>
+          <div class="yt-body">
+            <div class="yt-meta">All Videos · YouTube</div>
+            <div class="yt-title">More Clips & Performances</div>
+            <div class="yt-venue">Watch all on Abarie's YouTube Channel</div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <div class="yt-controls">
+      <button class="yt-arrow" id="ytPrev" aria-label="Previous">&#8592;</button>
+      <button class="yt-arrow" id="ytNext" aria-label="Next">&#8594;</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SERVICES ══════════ -->
+<section class="services-section">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:1rem;" class="reveal">
+      <div class="tag" style="justify-content:center;">What Abarie Does</div>
+      <h2 class="section-title" style="margin-top:0.8rem;">SERVICES <span>&amp; EXPERTISE</span></h2>
+      <p class="section-body" style="margin:1rem auto 0; text-align:center;">
+        From headline comedy to corporate MC — Abarie.com delivers every time.
+      </p>
+    </div>
+    <div class="services-grid reveal" style="transition-delay:0.1s;">
+      <div class="service-card">
+        <div class="service-icon red">🎤</div>
+        <div class="service-name">Stand-Up Comedy</div>
+        <div class="service-desc">Sharp, relatable, unforgettable — Abarie's stand-up blends street wisdom with razor-sharp timing that leaves audiences in tears.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon gold">🎙️</div>
+        <div class="service-name">MC / Compere</div>
+        <div class="service-desc">A professional Master of Ceremonies for concerts, weddings, corporate dinners, and major events across Nigeria.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon navy">🎬</div>
+        <div class="service-name">Online Content</div>
+        <div class="service-desc">Viral comedy skits and digital content across YouTube, Instagram, Facebook, and TikTok with millions of combined views.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon dark">🏢</div>
+        <div class="service-name">Corporate Events</div>
+        <div class="service-desc">From product launches to office parties — Abarie brings professionalism, energy, and laughter to every corporate engagement.</div>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:2.5rem;" class="reveal">
+      <a href="book-me.html" class="btn-red">Book Abarie for Your Event</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PORTFOLIO SNIPPET ══════════ -->
+<section style="background:var(--white); padding:90px 0;" id="portfolio">
+  <div class="container">
+    <div style="display:flex; align-items:flex-end; justify-content:space-between; flex-wrap:wrap; gap:1rem; margin-bottom:3rem;" class="reveal">
+      <div>
+        <div class="tag">Portfolio Highlights</div>
+        <h2 class="section-title" style="margin-top:0.8rem;">SEEN IT ALL,<br/><span>DONE IT ALL</span></h2>
+      </div>
+      <a href="portfolio.html" class="btn-outline-dark">Full Portfolio</a>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(280px,1fr)); gap:1.2rem;" class="reveal" style="transition-delay:0.1s;">
+      <!-- Portfolio card 1 -->
+      <div style="border-radius:var(--radius-lg); overflow:hidden; background:var(--light); border:1px solid var(--border);">
+        <div style="height:180px; background:var(--light); display:flex; align-items:center; justify-content:center; position:relative;">
+          <div style="text-align:center; color:var(--border); font-family:var(--font-display); letter-spacing:3px; font-size:0.8rem;">SFSG 2.0 PHOTO</div>
+          <a href="https://www.youtube.com/watch?v=gqENYWBeIXA" target="_blank" style="position:absolute; width:48px; height:48px; border-radius:50%; background:var(--primary); display:flex; align-items:center; justify-content:center; color:white;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </a>
+        </div>
+        <div style="padding:16px;">
+          <div style="font-size:0.68rem; letter-spacing:2px; text-transform:uppercase; color:var(--primary); font-weight:700; margin-bottom:4px;">Video · 2025</div>
+          <div style="font-family:var(--font-display); font-size:1.15rem; color:var(--dark); letter-spacing:1px;">So Far So Good 2.0 Highlights</div>
+        </div>
+      </div>
+
+      <!-- Portfolio card 2 -->
+      <div style="border-radius:var(--radius-lg); overflow:hidden; background:var(--light); border:1px solid var(--border);">
+        <div style="height:180px; background:var(--light); display:flex; align-items:center; justify-content:center; position:relative;">
+          <div style="text-align:center; color:var(--border); font-family:var(--font-display); letter-spacing:3px; font-size:0.8rem;">MUDIAGA SHOW</div>
+          <a href="https://www.youtube.com/watch?v=dPP57_KVzzs" target="_blank" style="position:absolute; width:48px; height:48px; border-radius:50%; background:var(--primary); display:flex; align-items:center; justify-content:center; color:white;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </a>
+        </div>
+        <div style="padding:16px;">
+          <div style="font-size:0.68rem; letter-spacing:2px; text-transform:uppercase; color:var(--primary); font-weight:700; margin-bottom:4px;">Video · 2023</div>
+          <div style="font-family:var(--font-display); font-size:1.15rem; color:var(--dark); letter-spacing:1px;">Mudiaga Comedy Show (Viral Performance)</div>
+        </div>
+      </div>
+
+      <!-- Portfolio card 3 -->
+      <div style="border-radius:var(--radius-lg); overflow:hidden; background:var(--light); border:1px solid var(--border);">
+        <div style="height:180px; background:var(--light); display:flex; align-items:center; justify-content:center; position:relative;">
+          <div style="text-align:center; color:var(--border); font-family:var(--font-display); letter-spacing:3px; font-size:0.8rem;">SFSG 1.0 PHOTO</div>
+          <a href="portfolio.html" style="position:absolute; width:48px; height:48px; border-radius:50%; background:var(--mid); display:flex; align-items:center; justify-content:center; color:white;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+        <div style="padding:16px;">
+          <div style="font-size:0.68rem; letter-spacing:2px; text-transform:uppercase; color:var(--primary); font-weight:700; margin-bottom:4px;">Gallery · 2024</div>
+          <div style="font-family:var(--font-display); font-size:1.15rem; color:var(--dark); letter-spacing:1px;">So Far So Good 1.0 — Terra Kulture</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ TESTIMONIALS SNIPPET ══════════ -->
+<section style="background:var(--offwhite); padding:90px 0;" id="testimonials">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:3rem;" class="reveal">
+      <div class="tag" style="justify-content:center;">What People Say</div>
+      <h2 class="section-title" style="margin-top:0.8rem;">THE CROWD<br/><span>NEVER LIES</span></h2>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(280px,1fr)); gap:1.5rem;" class="reveal">
+
+      <div style="background:var(--white); border:1px solid var(--border); border-radius:var(--radius-lg); padding:28px 24px;">
+        <div style="color:var(--primary); font-size:2rem; line-height:1; margin-bottom:12px;">"</div>
+        <p style="font-family:var(--font-serif); font-style:italic; color:var(--dark); font-size:1rem; line-height:1.75; margin-bottom:16px;">
+          Testimonials coming soon. Be the first to share your experience with Abarie.com.
+        </p>
+        <div style="display:flex; align-items:center; gap:12px;">
+          <div style="width:42px; height:42px; border-radius:50%; background:var(--primary-lt); display:flex; align-items:center; justify-content:center; color:var(--primary); font-family:var(--font-display); font-size:1.1rem; letter-spacing:1px;">AB</div>
+          <div>
+            <div style="font-weight:700; font-size:0.85rem; color:var(--dark);">Event Organiser</div>
+            <div style="font-size:0.75rem; color:var(--muted);">Lagos, Nigeria</div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <section id="shows" class="shows-bg">
-    <div class="shows-header">
-      <div>
-        <div class="section-tag">Live Performances</div>
-        <h2 class="section-title">SHOWS &amp;<br/>EVENTS</h2>
+      <div style="background:var(--primary); border-radius:var(--radius-lg); padding:28px 24px;">
+        <div style="color:rgba(255,255,255,0.4); font-size:2rem; line-height:1; margin-bottom:12px;">"</div>
+        <p style="font-family:var(--font-serif); font-style:italic; color:rgba(255,255,255,0.85); font-size:1rem; line-height:1.75; margin-bottom:16px;">
+          Have you worked with Abarie? Share your experience and help others discover Nigeria's Rib-Cracker.
+        </p>
+        <a href="contacts.html" style="display:inline-block; background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.3); color:white; padding:9px 20px; border-radius:var(--radius); font-size:0.75rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase;">Leave a Testimonial</a>
       </div>
-      <a href="#booking" class="btn-outline">Book for Your Event</a>
-    </div>
-    <div class="shows-grid">
-      <div class="show-card">
-        <div class="show-card-thumb"><span class="show-label">SFSG 3</span><div class="show-badge upcoming">Upcoming</div></div>
-        <div class="show-card-body">
-          <div class="show-card-date">📅 Date TBA — Lagos, Nigeria</div>
-          <div class="show-card-title">SO FAR SO GOOD 3.0</div>
-          <div class="show-card-venue"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Venue TBA — Lagos</div>
-          <div class="show-card-feat">Featuring: <span>Top Nigerian Comedy Acts</span></div>
-          <a href="#booking" class="show-card-link">Get Notified →</a>
-        </div>
-      </div>
-      <div class="show-card">
-        <div class="show-card-thumb"><span class="show-label">SFSG 2</span><div class="show-badge past">Completed</div></div>
-        <div class="show-card-body">
-          <div class="show-card-date">📅 25 May 2025 — Okota, Lagos</div>
-          <div class="show-card-title">SO FAR SO GOOD 2.0</div>
-          <div class="show-card-venue"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Hill Crest Event Center, Ago Palace Way, Okota</div>
-          <div class="show-card-feat">Featuring: <span>MC Monica, Kenny Blaq, Sarkin Dariya, Destalker, Kelvin Great, Da Saint</span></div>
-          <a href="https://www.youtube.com/watch?v=gqENYWBeIXA" target="_blank" class="show-card-link">Watch Highlights →</a>
-        </div>
-      </div>
-      <div class="show-card">
-        <div class="show-card-thumb"><span class="show-label">SFSG 1</span><div class="show-badge past">Completed</div></div>
-        <div class="show-card-body">
-          <div class="show-card-date">📅 5 May 2024 — Victoria Island, Lagos</div>
-          <div class="show-card-title">SO FAR SO GOOD 1.0</div>
-          <div class="show-card-venue"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Terra Kulture, Victoria Island, Lagos</div>
-          <div class="show-card-feat">Featuring: <span>A-List Comedians &amp; Artists — Debut Headline Show</span></div>
-          <a href="#media" class="show-card-link">View Media →</a>
-        </div>
-      </div>
-      <div class="show-card">
-        <div class="show-card-thumb"><span class="show-label">GUEST</span><div class="show-badge past">Completed</div></div>
-        <div class="show-card-body">
-          <div class="show-card-date">📅 2023 — Various Nigeria Stages</div>
-          <div class="show-card-title">MUDIAGA COMEDY SHOW (4TH SERVICE)</div>
-          <div class="show-card-venue"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Nigeria</div>
-          <div class="show-card-feat">Guest Performer — <span>One of his breakout performances that went viral</span></div>
-          <a href="https://www.youtube.com/watch?v=dPP57_KVzzs" target="_blank" class="show-card-link">Watch on YouTube →</a>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <section id="media">
-    <div class="section-tag">Highlights</div>
-    <h2 class="section-title" style="margin-bottom:2rem;">WATCH &amp; LAUGH</h2>
-    <div class="media-grid">
-      <div class="media-cell wide" onclick="window.open('https://www.youtube.com/watch?v=gqENYWBeIXA','_blank')">
-        <div class="media-cell-label">SFSG 2.0 SHOW HIGHLIGHTS<br/>MAY 2025</div>
-        <div class="play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
-      </div>
-      <div class="media-cell" onclick="window.open('https://www.youtube.com/watch?v=dPP57_KVzzs','_blank')">
-        <div class="media-cell-label">MUDIAGA<br/>COMEDY SHOW<br/>2023</div>
-        <div class="play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
-      </div>
-      <div class="media-cell" onclick="window.open('https://www.youtube.com/channel/UCqwQwJ-pYK1hlrEjAmgbw4Q','_blank')">
-        <div class="media-cell-label">VIRAL<br/>PERFORMANCE<br/>2025</div>
-        <div class="play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
-      </div>
-      <div class="media-cell" onclick="window.open('https://www.youtube.com/channel/UCqwQwJ-pYK1hlrEjAmgbw4Q','_blank')">
-        <div class="media-cell-label">SFSG 1.0<br/>TERRA KULTURE<br/>2024</div>
-        <div class="play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
-      </div>
     </div>
-    <div style="text-align:center;margin-top:2.5rem;">
-      <a href="https://www.youtube.com/channel/UCqwQwJ-pYK1hlrEjAmgbw4Q" target="_blank" class="btn-outline">Watch All on YouTube →</a>
-    </div>
-  </section>
 
-  <section id="connect" class="connect-bg">
-    <div style="text-align:center;margin-bottom:3rem;">
-      <div class="section-tag" style="justify-content:center;">Official Socials</div>
-      <h2 class="section-title">FOLLOW THE<br/>LAUGHTER</h2>
-      <p style="color:var(--text);max-width:480px;margin:1rem auto 0;line-height:1.8;font-size:0.95rem;">Abarie.com keeps the jokes coming daily. Follow along on every platform and never miss a punchline.</p>
+    <div style="text-align:center; margin-top:2.5rem;" class="reveal">
+      <a href="testimonials.html" class="btn-outline-dark">View All Testimonials</a>
     </div>
-    <div class="connect-grid">
-      <a href="https://www.instagram.com/abarie.com_/" target="_blank" class="platform-card">
+  </div>
+</section>
+
+<!-- ══════════ SOCIAL CARDS ══════════ -->
+<section class="social-section" id="connect">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:0.5rem;" class="reveal">
+      <div class="tag" style="color:var(--primary); justify-content:center;">Official Socials</div>
+      <h2 class="section-title" style="color:var(--white); margin-top:0.8rem;">FOLLOW THE<br/><span>LAUGHTER</span></h2>
+      <p class="section-body" style="color:rgba(255,255,255,0.45); margin:1rem auto 0; text-align:center;">
+        Abarie.com keeps the jokes coming daily. Follow on every platform and never miss a punchline.
+      </p>
+    </div>
+    <div class="social-cards-grid reveal" style="transition-delay:0.1s;">
+
+      <a href="https://www.instagram.com/abarie.com_/" target="_blank" class="platform-card" style="border-color:rgba(240,148,51,0.25);">
         <div class="platform-icon" style="background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
         </div>
@@ -348,7 +635,8 @@
         <div class="platform-handle">@abarie.com_</div>
         <div class="platform-stat">20K+ Followers · 221 Posts</div>
       </a>
-      <a href="https://www.facebook.com/Abariedotcomcomedy/" target="_blank" class="platform-card">
+
+      <a href="https://www.facebook.com/Abariedotcomcomedy/" target="_blank" class="platform-card" style="border-color:rgba(24,119,242,0.25);">
         <div class="platform-icon" style="background:#1877f2;">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
         </div>
@@ -356,73 +644,131 @@
         <div class="platform-handle">Abariedotcomcomedy</div>
         <div class="platform-stat">73K+ Likes · Active Daily</div>
       </a>
-      <a href="https://www.youtube.com/channel/UCqwQwJ-pYK1hlrEjAmgbw4Q" target="_blank" class="platform-card">
+
+      <a href="https://www.youtube.com/channel/UCqwQwJ-pYK1hlrEjAmgbw4Q" target="_blank" class="platform-card" style="border-color:rgba(255,0,0,0.25);">
         <div class="platform-icon" style="background:#ff0000;">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white" stroke="none"/></svg>
         </div>
         <div class="platform-name">YouTube</div>
         <div class="platform-handle">Abarie dotcom comedy</div>
         <div class="platform-stat">Stand-up Videos · Comedy Clips</div>
       </a>
-      <a href="https://www.tiktok.com/discover/abarie-nigerian-comedian" target="_blank" class="platform-card">
-        <div class="platform-icon" style="background:#010101;">
+
+      <a href="https://www.tiktok.com/@abarie.com" target="_blank" class="platform-card">
+        <div class="platform-icon" style="background:#010101; border:1px solid rgba(255,255,255,0.15);">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
         </div>
         <div class="platform-name">TikTok</div>
         <div class="platform-handle">Abarie Comedy</div>
         <div class="platform-stat">Viral Clips · Trending Content</div>
       </a>
-    </div>
-  </section>
 
-  <section id="booking">
-    <div class="booking-wrap">
-      <div class="section-tag">Bookings &amp; Enquiries</div>
-      <h2 class="section-title">BOOK ABARIE<br/>FOR YOUR EVENT</h2>
-      <p class="section-body">Looking for a headline comedian, a sharp MC/compere, or the life of your corporate event, wedding, concert, or private show? Abarie.com delivers every time. Reach out directly via any of the channels below.</p>
-      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-        <a href="mailto:Abariedaniel212@gmail.com" class="btn-primary">Email Abarie</a>
-        <a href="https://wa.me/2347031557062" target="_blank" class="btn-outline">WhatsApp Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ BOOKING CTA BANNER ══════════ -->
+<section class="booking-snippet" id="booking">
+  <div class="container">
+    <div class="booking-inner">
+      <div class="reveal">
+        <h2>BOOK ABARIE<br/>FOR YOUR EVENT</h2>
+        <p>Headline comedian, sharp MC, corporate events, weddings, concerts — Abarie.com delivers every time.</p>
       </div>
-      <div class="contact-grid">
-        <div class="contact-item">
-          <div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-          <div><strong>Email</strong><a href="mailto:Abariedaniel212@gmail.com">Abariedaniel212@gmail.com</a></div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.28h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.88a16 16 0 0 0 6.13 6.13l1.17-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
-          <div><strong>WhatsApp / Phone</strong><a href="tel:+2347031557062">+234 703 155 7062</a></div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
-          <div><strong>Instagram DM</strong><a href="https://www.instagram.com/abarie.com_/" target="_blank">@abarie.com_</a></div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></div>
-          <div><strong>Facebook</strong><a href="https://www.facebook.com/Abariedotcomcomedy/" target="_blank">Abariedotcomcomedy</a></div>
-        </div>
+      <div class="booking-btns reveal" style="transition-delay:0.15s;">
+        <a href="mailto:Abariedaniel212@gmail.com" class="btn-outline-white">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Email Us
+        </a>
+        <a href="https://wa.me/2347031557062" target="_blank" style="background:var(--white); color:var(--primary); padding:13px 30px; border-radius:var(--radius); font-weight:700; font-size:0.82rem; letter-spacing:1.5px; text-transform:uppercase; display:inline-flex; align-items:center; gap:8px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.28h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.88a16 16 0 0 0 6.13 6.13l1.17-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          WhatsApp Now
+        </a>
+        <a href="book-me.html" class="btn-outline-white">Full Booking Form →</a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer>
-    <div>
-      <div class="footer-logo">ABARIE<span>.COM</span></div>
-      <p style="margin-top:6px;">Stand-Up Comedian & Compere · Lagos, Nigeria</p>
-    </div>
-    <p>© 2025 Abarie.com Entertainment. Demo site.</p>
-    <div class="footer-social">
-      <a href="https://www.instagram.com/abarie.com_/" target="_blank" title="Instagram">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-      </a>
-      <a href="https://www.facebook.com/Abariedotcomcomedy/" target="_blank" title="Facebook">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-      </a>
-      <a href="https://www.youtube.com/channel/UCqwQwJ-pYK1hlrEjAmgbw4Q" target="_blank" title="YouTube">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/></svg>
-      </a>
-    </div>
-  </footer>
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
 
+      <!-- Brand -->
+      <div class="footer-brand">
+        <div class="nav-logo">ABARIE<span>.COM</span></div>
+        <p>Nigeria's most electrifying stand-up comedian and compere. Based in Lagos, performing everywhere.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/abarie.com_/" target="_blank" title="Instagram">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://www.facebook.com/Abariedotcomcomedy/" target="_blank" title="Facebook">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/channel/UCqwQwJ-pYK1hlrEjAmgbw4Q" target="_blank" title="YouTube">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@abarie.com" target="_blank" title="TikTok">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="book-me.html">Book Me</a></li>
+          <li><a href="tickets.html">Tickets</a></li>
+          <li><a href="testimonials.html">Testimonials</a></li>
+          <li><a href="contacts.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Services -->
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="book-me.html">Stand-Up Comedy</a></li>
+          <li><a href="book-me.html">MC / Compere</a></li>
+          <li><a href="book-me.html">Corporate Events</a></li>
+          <li><a href="book-me.html">Weddings</a></li>
+          <li><a href="book-me.html">Private Shows</a></li>
+          <li><a href="book-me.html">Online Appearances</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul class="footer-contact">
+          <li>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:Abariedaniel212@gmail.com">Abariedaniel212@gmail.com</a>
+          </li>
+          <li>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.28h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.88a16 16 0 0 0 6.13 6.13l1.17-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:+2347031557062">+234 703 155 7062</a>
+          </li>
+          <li>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Lagos, Nigeria
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 Abarie.com Entertainment. All rights reserved.</p>
+      <p>Built with ❤️ for Nigeria's Rib-Cracker</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
 </body>
 </html>
