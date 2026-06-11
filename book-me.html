@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book Me – Abarie.com | Comedian & Compere</title>
+  <meta name="description" content="Book Abarie.com for your event — stand-up comedy, MC/compere, corporate events, weddings and more."/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Sora:wght@300;400;600;700&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <style>
+    .page-hero {
+      padding: 140px 0 80px;
+      background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 60%, var(--mid) 100%);
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .page-hero h1 { color: var(--white); margin-bottom: 1rem; }
+    .page-hero p { color: rgba(255,255,255,0.55); max-width: 520px; margin: 0 auto; }
+
+    .booking-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 60px; align-items: start;
+    }
+
+    .booking-info-card {
+      background: var(--dark);
+      border-radius: var(--radius-lg);
+      padding: 36px 30px;
+      color: white;
+      position: sticky; top: 90px;
+    }
+    .booking-info-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.5rem; letter-spacing: 2px;
+      color: var(--white); margin-bottom: 1.5rem;
+    }
+
+    .info-item {
+      display: flex; align-items: flex-start; gap: 14px;
+      margin-bottom: 1.2rem; padding-bottom: 1.2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .info-item:last-of-type { border-bottom: none; margin-bottom: 0; }
+    .info-icon {
+      width: 40px; height: 40px; border-radius: var(--radius);
+      background: rgba(232,64,58,0.15);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--primary); flex-shrink: 0;
+    }
+    .info-item strong { display: block; font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 2px; }
+    .info-item a, .info-item span { font-size: 0.88rem; color: var(--white); }
+    .info-item a:hover { color: var(--primary); }
+
+    .service-types { margin-top: 1.5rem; }
+    .service-types h4 { font-size: 0.72rem; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 0.8rem; }
+    .service-tag {
+      display: inline-block; margin: 3px;
+      background: rgba(232,64,58,0.15);
+      border: 1px solid rgba(232,64,58,0.25);
+      color: #ff8b88; padding: 4px 12px; border-radius: 50px;
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 1px;
+    }
+
+    /* Form */
+    .booking-form-wrap {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 40px 36px;
+      border: 1px solid var(--border);
+    }
+    .booking-form-wrap h3 {
+      font-family: var(--font-display);
+      font-size: 1.5rem; letter-spacing: 2px; color: var(--dark);
+      margin-bottom: 0.3rem;
+    }
+    .booking-form-wrap p { font-size: 0.85rem; color: var(--muted); margin-bottom: 2rem; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-group { margin-bottom: 1.2rem; }
+    .form-group label {
+      display: block; font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--text); margin-bottom: 6px;
+    }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; padding: 11px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      font-family: var(--font-body);
+      font-size: 0.88rem; color: var(--text);
+      background: var(--offwhite);
+      transition: border-color .2s, background .2s;
+      outline: none;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      border-color: var(--primary);
+      background: var(--white);
+    }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+
+    .form-note { font-size: 0.78rem; color: var(--muted); margin-top: 0.8rem; text-align: center; }
+    .form-note a { color: var(--primary); }
+
+    @media (max-width: 900px) {
+      .booking-grid { grid-template-columns: 1fr; }
+      .booking-info-card { position: static; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container">
+    <div class="navbar-inner">
+      <a href="index.html" class="nav-logo">ABARIE<span>.COM</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="book-me.html" class="active">Book Me</a></li>
+        <li><a href="tickets.html">Tickets</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+        <li><a href="contacts.html">Contact</a></li>
+      </ul>
+      <a href="book-me.html" class="nav-cta">Book Abarie</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <ul><li><a href="index.html">Home</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="book-me.html">Book Me</a></li><li><a href="tickets.html">Tickets</a></li><li><a href="testimonials.html">Testimonials</a></li><li><a href="contacts.html">Contact</a></li></ul>
+  <a href="book-me.html" class="btn-red">Book Abarie Now</a>
+</div>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="tag" style="color:var(--primary); justify-content:center; margin-bottom:1rem;">Bookings & Enquiries</div>
+    <h1 class="section-title">BOOK ABARIE<br/><span style="color:var(--primary);">FOR YOUR EVENT</span></h1>
+    <p>Stand-up comedy, MC/compere, corporate events, weddings, concerts, private shows — Abarie.com delivers every time.</p>
+  </div>
+</div>
+
+<section style="background:var(--offwhite);">
+  <div class="container">
+    <div class="booking-grid">
+
+      <!-- Info sidebar -->
+      <div class="booking-info-card reveal">
+        <h3>GET IN TOUCH</h3>
+
+        <div class="info-item">
+          <div class="info-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <strong>Email</strong>
+            <a href="mailto:Abariedaniel212@gmail.com">Abariedaniel212@gmail.com</a>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.28h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.88a16 16 0 0 0 6.13 6.13l1.17-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div>
+            <strong>WhatsApp / Phone</strong>
+            <a href="tel:+2347031557062">+234 703 155 7062</a>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </div>
+          <div>
+            <strong>Instagram DM</strong>
+            <a href="https://www.instagram.com/abarie.com_/" target="_blank">@abarie.com_</a>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <strong>Location</strong>
+            <span>Lagos, Nigeria · Available Nationwide</span>
+          </div>
+        </div>
+
+        <div class="service-types">
+          <h4>Available For</h4>
+          <span class="service-tag">Stand-Up Comedy</span>
+          <span class="service-tag">MC / Compere</span>
+          <span class="service-tag">Corporate Events</span>
+          <span class="service-tag">Weddings</span>
+          <span class="service-tag">Concerts</span>
+          <span class="service-tag">Private Shows</span>
+          <span class="service-tag">Online Appearances</span>
+        </div>
+
+        <div style="margin-top:2rem;">
+          <a href="https://wa.me/2347031557062" target="_blank" class="btn-red" style="width:100%; justify-content:center;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.28h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.88a16 16 0 0 0 6.13 6.13l1.17-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Chat on WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <!-- Booking Form -->
+      <div class="booking-form-wrap reveal" style="transition-delay:0.15s;">
+        <h3>SEND A BOOKING ENQUIRY</h3>
+        <p>Fill out the form and Abarie will get back to you within 24 hours.</p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fname">First Name *</label>
+            <input type="text" id="fname" placeholder="John" required/>
+          </div>
+          <div class="form-group">
+            <label for="lname">Last Name *</label>
+            <input type="text" id="lname" placeholder="Doe" required/>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" placeholder="john@example.com" required/>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone / WhatsApp *</label>
+            <input type="tel" id="phone" placeholder="+234 XXX XXX XXXX" required/>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="event-type">Type of Event *</label>
+          <select id="event-type" required>
+            <option value="">— Select event type —</option>
+            <option>Stand-Up Comedy Show</option>
+            <option>Corporate Event</option>
+            <option>Wedding / Reception</option>
+            <option>Concert / Music Event</option>
+            <option>Private Party</option>
+            <option>Product Launch</option>
+            <option>Award Ceremony</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="event-date">Event Date *</label>
+            <input type="date" id="event-date" required/>
+          </div>
+          <div class="form-group">
+            <label for="location">Event Location *</label>
+            <input type="text" id="location" placeholder="City, State, Nigeria" required/>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="audience">Expected Audience Size</label>
+          <select id="audience">
+            <option value="">— Select size —</option>
+            <option>Under 50 guests</option>
+            <option>50 – 200 guests</option>
+            <option>200 – 500 guests</option>
+            <option>500 – 1,000 guests</option>
+            <option>1,000+ guests</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Tell Us More About Your Event</label>
+          <textarea id="message" placeholder="Brief description of your event, theme, requirements, and any special requests..."></textarea>
+        </div>
+
+        <button class="btn-red" style="width:100%; justify-content:center; padding:15px;" onclick="submitBooking()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          Send Booking Enquiry
+        </button>
+
+        <p class="form-note">
+          Or reach out directly via <a href="mailto:Abariedaniel212@gmail.com">email</a> or
+          <a href="https://wa.me/2347031557062" target="_blank">WhatsApp</a>.
+          We respond within 24 hours.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="nav-logo">ABARIE<span>.COM</span></div><p>Nigeria's most electrifying stand-up comedian and compere. Based in Lagos, performing everywhere.</p><div class="footer-social"><a href="https://www.instagram.com/abarie.com_/" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a><a href="https://www.facebook.com/Abariedotcomcomedy/" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a><a href="https://www.youtube.com/channel/UCqwQwJ-pYK1hlrEjAmgbw4Q" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/></svg></a></div></div>
+      <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="book-me.html">Book Me</a></li><li><a href="tickets.html">Tickets</a></li><li><a href="testimonials.html">Testimonials</a></li><li><a href="contacts.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h4>Services</h4><ul><li><a href="book-me.html">Stand-Up Comedy</a></li><li><a href="book-me.html">MC / Compere</a></li><li><a href="book-me.html">Corporate Events</a></li><li><a href="book-me.html">Weddings</a></li></ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul class="footer-contact"><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:Abariedaniel212@gmail.com">Abariedaniel212@gmail.com</a></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.28h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.88a16 16 0 0 0 6.13 6.13l1.17-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="tel:+2347031557062">+234 703 155 7062</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 Abarie.com Entertainment. All rights reserved.</p></div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+function submitBooking() {
+  const fname = document.getElementById('fname').value;
+  const email = document.getElementById('email').value;
+  const eventType = document.getElementById('event-type').value;
+  if (!fname || !email || !eventType) {
+    alert('Please fill in all required fields.');
+    return;
+  }
+  const subject = encodeURIComponent('Booking Enquiry — ' + eventType);
+  const body = encodeURIComponent(
+    'Name: ' + document.getElementById('fname').value + ' ' + document.getElementById('lname').value + '\n' +
+    'Email: ' + email + '\n' +
+    'Phone: ' + document.getElementById('phone').value + '\n' +
+    'Event Type: ' + eventType + '\n' +
+    'Date: ' + document.getElementById('event-date').value + '\n' +
+    'Location: ' + document.getElementById('location').value + '\n' +
+    'Audience: ' + document.getElementById('audience').value + '\n\n' +
+    'Message:\n' + document.getElementById('message').value
+  );
+  window.location.href = 'mailto:Abariedaniel212@gmail.com?subject=' + subject + '&body=' + body;
+}
+</script>
+</body>
+</html>
